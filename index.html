@@ -2252,74 +2252,27 @@
   <!-- ========================================================================= -->
   <script>
 
-    /* ==================== 0. SINGLE PAGE STORYBOOK / CHAPTER CONTROLLER ==================== */
-    let currentPage = 1;
-    const totalPages = 8;
-    const chapterTitles = [
-      "Chapter 1: Welcome & Quick Guide 🌸",
-      "Chapter 2: Tum Kyun Special Ho ✨",
-      "Chapter 3: Hamari Yaadgaar Kahani ⏳",
-      "Chapter 4: Busy Queen & Mood Meter 👑",
-      "Chapter 5: Secret Inside Jokes 😂",
-      "Chapter 6: Things I Love & Tareef 💖",
-      "Chapter 7: Riya Ka Game Zone 🎮",
-      "Chapter 8: Aman Ka Secret Khat 💌"
-    ];
+    /* ==================== 0. SINGLE PAGE CLEAN VIEW CONTROLLER ==================== */
+    const viewList = ['home', 'about', 'story', 'busy', 'jokes', 'love', 'games', 'letter'];
 
-    function goToPage(page) {
-      if (page < 1 || page > totalPages) return;
-      
-      document.querySelectorAll('.page-section').forEach(p => {
-        p.classList.remove('active-page');
+    function showView(viewName) {
+      if (!viewList.includes(viewName)) return;
+
+      document.querySelectorAll('.view-page').forEach(el => {
+        el.classList.remove('active-view');
       });
 
-      currentPage = page;
-      const targetPage = document.getElementById(`page-${page}`);
-      if (targetPage) {
-        targetPage.classList.add('active-page');
+      const target = document.getElementById(`view-${viewName}`);
+      if (target) {
+        target.classList.add('active-view');
       }
 
-      // Update progress bar & chapter title
-      const titleEl = document.getElementById('chapterTitleText');
-      const barEl = document.getElementById('chapterProgressBar');
-      const countEl = document.getElementById('chapterCountText');
-      
-      if (titleEl) titleEl.textContent = chapterTitles[page - 1];
-      if (countEl) countEl.textContent = `Page ${page} of ${totalPages}`;
-      if (barEl) barEl.style.width = `${(page / totalPages) * 100}%`;
-
-      // Update step dots
-      for (let i = 1; i <= totalPages; i++) {
-        const dot = document.getElementById(`dot-${i}`);
-        if (dot) {
-          if (i === page) {
-            dot.className = 'w-7 h-7 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs flex items-center justify-center shadow-md scale-110 transition-all cursor-pointer';
-          } else if (i < page) {
-            dot.className = 'w-6 h-6 rounded-full bg-rose-200 dark:bg-rose-950 text-rose-600 dark:text-rose-300 font-bold text-[10px] flex items-center justify-center cursor-pointer hover:bg-rose-300 transition-all';
-          } else {
-            dot.className = 'w-6 h-6 rounded-full bg-gray-200 dark:bg-darkCard text-gray-400 font-bold text-[10px] flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-all';
-          }
-        }
-      }
-
-      playChime(523.25 + (page * 35), 0.15);
+      playChime(659.25, 0.15);
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // If opening games page (page 7), init catcher canvas
-      if (page === 7) {
+      // If games view, init canvas
+      if (viewName === 'games') {
         setTimeout(initCatcherCanvas, 100);
-      }
-    }
-
-    function nextPage() {
-      if (currentPage < totalPages) {
-        goToPage(currentPage + 1);
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 1) {
-        goToPage(currentPage - 1);
       }
     }
 
