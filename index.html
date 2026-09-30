@@ -1,0 +1,3183 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Riya 💖 | Ek Khaas Jagah Sirf Tumhare Liye</title>
+  
+  <!-- Google Fonts: Elegant headings + Clean body + Handwriting font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            blush: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+            },
+            lavender: {
+              50: '#faf5ff',
+              100: '#f3e8ff',
+              200: '#e9d5ff',
+              300: '#d8b4fe',
+              400: '#c084fc',
+              500: '#a855f7',
+            },
+            peach: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+            },
+            cream: '#fdfbf7',
+            darkBg: '#0f0c1b',
+            darkCard: '#1a142c',
+            darkBorder: '#2e254d'
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'serif'],
+            script: ['"Dancing Script"', 'cursive'],
+            handwriting: ['"Caveat"', 'cursive'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-medium': 'float 4s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            'sparkle': 'sparkle 2s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite',
+            'spin-record': 'spin 4s linear infinite',
+            'shake': 'shake 0.5s ease-in-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-14px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.05)', opacity: '0.85' },
+            },
+            sparkle: {
+              '0%, 100%': { opacity: '0.3', transform: 'scale(0.8)' },
+              '50%': { opacity: '1', transform: 'scale(1.2)' },
+            },
+            shake: {
+              '0%, 100%': { transform: 'translateX(0)' },
+              '20%, 60%': { transform: 'translateX(-8px)' },
+              '40%, 80%': { transform: 'translateX(8px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Single Page Storybook & Page Transition Styles */
+    .page-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .page-section.active-page {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: pageFadeIn 0.45s ease-out;
+    }
+    @keyframes pageFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    
+    /* Single Page View Transitions */
+    .view-page {
+      display: none;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .view-page.active-view {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      animation: viewFadeIn 0.4s ease-out;
+    }
+    @keyframes viewFadeIn {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fdf2f4;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #0f0c1b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f472b6;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e11d48;
+    }
+
+    /* Glassmorphism Classes */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    .dark .glass-panel {
+      background: rgba(26, 20, 44, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(254, 205, 211, 0.5);
+    }
+    .dark .glass-nav {
+      background: rgba(15, 12, 27, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(46, 37, 77, 0.6);
+    }
+
+    /* 3D Flip Card Effect */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .card-flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* Envelope 3D Animation Styles */
+    .envelope-wrapper {
+      position: relative;
+      width: 320px;
+      height: 220px;
+      margin: 0 auto;
+      perspective: 1200px;
+      transition: transform 0.4s ease;
+    }
+    @media (min-width: 640px) {
+      .envelope-wrapper {
+        width: 460px;
+        height: 290px;
+      }
+    }
+    
+    .envelope-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
+      border-radius: 16px;
+      box-shadow: 0 25px 50px -12px rgba(244, 63, 94, 0.35);
+    }
+
+    .envelope-letter {
+      position: absolute;
+      top: 10px;
+      left: 4%;
+      width: 92%;
+      background: #fefce8;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.9s cubic-bezier(0.34, 1.3, 0.64, 1), opacity 0.5s ease;
+      z-index: 2;
+      transform: translateY(0);
+    }
+
+    .envelope-wrapper.open .envelope-letter {
+      transform: translateY(-160px);
+      z-index: 20;
+    }
+
+    .envelope-front {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 160px 140px 160px;
+      border-color: transparent transparent #fb7185 transparent;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+      border-radius: 0 0 16px 16px;
+      pointer-events: none;
+    }
+    @media (min-width: 640px) {
+      .envelope-front {
+        border-width: 0 230px 190px 230px;
+      }
+    }
+
+    .envelope-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 130px 160px 0 160px;
+      border-color: #e11d48 transparent transparent transparent;
+      transform-origin: top;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.3s ease;
+      z-index: 6;
+      border-radius: 16px 16px 0 0;
+    }
+    @media (min-width: 640px) {
+      .envelope-top {
+        border-width: 170px 230px 0 230px;
+      }
+    }
+
+    .envelope-wrapper.open .envelope-top {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    /* Wax Seal Pulse & Glow */
+    .wax-seal {
+      animation: sealPulse 2.5s infinite ease-in-out;
+      box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6);
+    }
+    @keyframes sealPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 0 0 12px rgba(225, 29, 72, 0);
+      }
+    }
+
+    /* Parchment Modal Animation */
+    .parchment-modal {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.9) translateY(30px);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .parchment-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Custom Heart Cursor Animation */
+    .heart-sparkle {
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      font-size: 16px;
+      animation: sparkleFly 1.2s forwards ease-out;
+      z-index: 99999;
+      user-select: none;
+    }
+
+    @keyframes sparkleFly {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -100px) scale(1.6) rotate(25deg);
+      }
+    }
+
+    /* Gradient Text Animation */
+    .animated-gradient-text {
+      background: linear-gradient(135deg, #e11d48, #ec4899, #8b5cf6, #f97316);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Audio Visualizer Equalizer */
+    .equalizer-bar {
+      animation: eqBar 1s ease-in-out infinite alternate;
+    }
+    @keyframes eqBar {
+      0% { height: 4px; }
+      100% { height: 20px; }
+    }
+  </style>
+</head>
+
+<body class="bg-[#FFF8F9] text-gray-800 dark:bg-darkBg dark:text-gray-100 transition-colors duration-500 font-body relative overflow-x-hidden selection:bg-rose-200 selection:text-rose-900">
+
+  <!-- ========================================================================= -->
+  <!-- HIDDEN YOUTUBE PLAYER CONTAINER -->
+  <!-- ========================================================================= -->
+  <div class="fixed -bottom-96 -left-96 opacity-0 pointer-events-none w-1 h-1 overflow-hidden" aria-hidden="true">
+    <div id="youtubePlayer"></div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 1. PASSWORD GATE OVERLAY (Passcode: 252006) -->
+  <!-- ========================================================================= -->
+  <div id="passwordGate" class="fixed inset-0 z-[10000] flex items-center justify-center p-4 bg-gradient-to-br from-rose-100 via-purple-50 to-pink-100 dark:from-darkBg dark:via-[#191228] dark:to-[#0f0c1b] transition-opacity duration-700">
+    <div class="relative w-full max-w-md p-8 sm:p-10 rounded-3xl glass-panel shadow-2xl text-center border border-white/80 dark:border-purple-900/40">
+      
+      <div class="w-20 h-20 mx-auto -mt-16 sm:-mt-20 mb-6 rounded-full bg-gradient-to-tr from-rose-500 to-pink-400 p-1 shadow-lg shadow-rose-400/40 animate-float-slow flex items-center justify-center">
+        <div class="w-full h-full rounded-full bg-white dark:bg-darkCard flex items-center justify-center text-3xl">
+          🔐
+        </div>
+      </div>
+
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>✨ Sirf Riya Ke Liye</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-2">
+        Hey Riya! 🌸
+      </h2>
+      <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6">
+        Yeh special jagah locked hai! Hamara 6-digit secret code dalo aur andar aao:
+      </p>
+
+      <form id="gateForm" onsubmit="event.preventDefault(); verifyPassword();" class="space-y-4">
+        <div class="relative">
+          <input 
+            type="password" 
+            id="passwordInput" 
+            maxlength="6"
+            placeholder="••••••" 
+            autocomplete="off"
+            class="w-full text-center text-2xl tracking-[0.6em] font-bold py-3.5 px-4 rounded-2xl bg-white/80 dark:bg-darkCard/80 border-2 border-rose-200 dark:border-purple-800/60 focus:outline-none focus:border-rose-500 dark:focus:border-rose-400 focus:ring-4 focus:ring-rose-200/50 dark:focus:ring-rose-900/30 transition-all text-gray-800 dark:text-white"
+          />
+        </div>
+
+        <div id="gateError" class="hidden text-rose-500 dark:text-rose-400 text-xs font-medium animate-shake flex items-center justify-center gap-1">
+          <span>❌ Arre galat code! Thoda yaad karo hamara special number!</span>
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white font-semibold shadow-lg shadow-rose-500/30 active:scale-98 transition-all flex items-center justify-center gap-2 text-base cursor-pointer"
+        >
+          <span>Hamari Duniya Kholo 🎶</span>
+          <span>💌</span>
+        </button>
+      </form>
+
+      <div class="mt-6 pt-4 border-t border-rose-100 dark:border-purple-900/30">
+        <button onclick="toggleHint()" type="button" class="text-xs text-rose-500 dark:text-rose-400 hover:underline font-medium flex items-center justify-center gap-1 mx-auto">
+          <span>💡 Koi clue chahiye?</span>
+        </button>
+        <p id="hintText" class="hidden mt-2 text-xs text-gray-500 dark:text-gray-400 italic bg-rose-50/80 dark:bg-purple-950/30 p-2.5 rounded-xl">
+          Hint: Hamara lucky 6-digit passcode (<b>252006</b>) hai! 🎂✨
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- FLOATING DECORATIVE BACKGROUND PARTICLES & SVGs (ZERO EXTERNAL IMAGES) -->
+  <!-- ========================================================================= -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <svg class="absolute -top-32 -left-32 w-96 h-96 text-rose-200/40 dark:text-purple-950/20 blur-3xl animate-pulse-soft" viewBox="0 0 200 200">
+      <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.5,90,-16.3,88.5,-0.9C86.9,14.6,81.2,29.1,72.4,41.2C63.6,53.3,51.8,63,38.4,70.1C25,77.2,10.1,81.7,-4.6,89.7C-19.3,97.7,-33.7,109.2,-46.8,105.7C-59.8,102.3,-71.4,83.9,-78.9,66.8C-86.3,49.6,-89.6,33.7,-89.8,18.4C-90,-7.1,-87.1,-32,-76.6,-48.7C-66.2,-65.4,-48.2,-73.9,-31.9,-79.8C-15.6,-85.7,8.9,-89,24.7,-84.9C40.6,-80.7,47.7,-69.1,44.7,-76.4Z" transform="translate(100 100)" />
+    </svg>
+    <svg class="absolute top-1/3 -right-32 w-[30rem] h-[30rem] text-pink-200/30 dark:text-rose-950/20 blur-3xl animate-pulse-soft" viewBox="0 0 200 200">
+      <path fill="currentColor" d="M39.9,-65.7C54.1,-60.5,69.7,-53.8,77.7,-41.8C85.7,-29.8,86.1,-12.4,83.4,4.1C80.7,20.6,74.9,36.2,65.1,49.2C55.3,62.2,41.6,72.6,26.7,77.4C11.7,82.2,-4.5,81.4,-20.1,77.3C-35.7,73.1,-50.7,65.6,-61.8,53.6C-72.9,41.6,-80.2,25.1,-82.1,7.9C-84.1,-9.4,-80.7,-27.4,-71.9,-41.7C-63.1,-56,-48.8,-66.6,-34.2,-71.4C-19.6,-76.1,-4.7,-75.1,9.2,-73.4C23.1,-71.7,25.7,-70.9,39.9,-65.7Z" transform="translate(100 100)" />
+    </svg>
+    <canvas id="ambientCanvas" class="w-full h-full"></canvas>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 2. STICKY GLASS NAVIGATION BAR -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo / Name -->
+      <a onclick="showView('home')" class="flex items-center gap-2 group cursor-pointer">
+        <span class="text-2xl transform group-hover:scale-125 transition-transform duration-300">💖</span>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg text-gray-900 dark:text-white leading-tight">
+            Riya & Aman
+          </span>
+          <span class="text-[10px] text-rose-500 dark:text-rose-400 font-medium tracking-wider uppercase">
+            Special Edition 🌸
+          </span>
+        </div>
+      </a>
+
+            <!-- Desktop Nav Links (Clean View Switcher) -->
+      <nav class="hidden md:flex items-center gap-4 text-xs lg:text-sm font-medium text-gray-600 dark:text-gray-300">
+        <button onclick="showView('home')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">🏠 Home</button>
+        <button onclick="showView('about')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">Special Kyun Ho</button>
+        <button onclick="showView('story')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">Hamari Kahani</button>
+        <button onclick="showView('busy')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1 cursor-pointer">
+          <span>Busy Queen & Sorry 👑</span>
+        </button>
+        <button onclick="showView('jokes')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">Inside Jokes</button>
+        <button onclick="showView('love')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">Tareef 💖</button>
+        <button onclick="showView('games')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors cursor-pointer">Games 🎮</button>
+        <button onclick="showView('letter')" class="hover:text-rose-500 dark:hover:text-rose-400 transition-colors flex items-center gap-1 text-rose-500 font-semibold cursor-pointer">
+          <span>Secret Letter 💌</span>
+        </button>
+      </nav>
+
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2.5">
+        <button 
+          id="navMusicBtn" 
+          onclick="toggleYouTubeMusic()" 
+          title="Khwab Song On/Off"
+          class="p-2 rounded-full bg-rose-100/80 dark:bg-darkCard hover:bg-rose-200 dark:hover:bg-purple-900 text-rose-600 dark:text-rose-300 transition-all flex items-center gap-2 px-3.5 text-xs font-semibold shadow-sm border border-rose-200/60 dark:border-purple-800/40"
+        >
+          <span id="navMusicIcon" class="text-sm">🎵</span>
+          <span id="navMusicLabel" class="hidden sm:inline">Song: Play</span>
+          <div id="navEqualizer" class="hidden flex items-end gap-0.5 h-3">
+            <span class="w-0.5 bg-rose-500 rounded-full equalizer-bar" style="animation-duration: 0.5s;"></span>
+            <span class="w-0.5 bg-rose-500 rounded-full equalizer-bar" style="animation-duration: 0.8s;"></span>
+            <span class="w-0.5 bg-rose-500 rounded-full equalizer-bar" style="animation-duration: 0.4s;"></span>
+          </div>
+        </button>
+
+        <button 
+          onclick="toggleDarkMode()" 
+          title="Dark/Light Mode Badlo"
+          class="p-2 rounded-full bg-rose-100/80 dark:bg-darkCard hover:bg-rose-200 dark:hover:bg-purple-900 text-rose-600 dark:text-rose-300 transition-all text-base shadow-sm"
+        >
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <button 
+          onclick="toggleMobileMenu()" 
+          class="md:hidden p-2 rounded-xl bg-rose-100/80 dark:bg-darkCard text-rose-600 dark:text-rose-300 text-lg"
+        >
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+        <!-- Mobile Drawer (Clean View Switcher) -->
+    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-6 glass-nav border-t border-rose-100 dark:border-purple-900/40 space-y-2 text-center">
+      <button onclick="showView('home'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium hover:text-rose-500">🏠 1. Home</button>
+      <button onclick="showView('about'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium hover:text-rose-500">🌸 2. Tum Kyun Special Ho</button>
+      <button onclick="showView('story'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium hover:text-rose-500">⏳ 3. Hamari Kahani</button>
+      <button onclick="showView('busy'); toggleMobileMenu();" class="block w-full py-2 text-sm font-bold text-amber-600">👑 4. Busy Queen & Mood Meter</button>
+      <button onclick="showView('jokes'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium hover:text-rose-500">😂 5. Inside Jokes</button>
+      <button onclick="showView('love'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium hover:text-rose-500">💖 6. Things I Love & Tareef</button>
+      <button onclick="showView('games'); toggleMobileMenu();" class="block w-full py-2 text-sm font-medium text-rose-500 font-semibold">🎮 7. Games Lounge</button>
+      <button onclick="showView('letter'); toggleMobileMenu();" class="block w-full py-2 text-sm font-bold text-rose-600">💌 8. Secret Letter</button>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  
+  <!-- ========================================================================= -->
+  <!-- VIEW 1: HOME HUB (CLEAN WELCOME & INTERACTIVE DIRECTORY) -->
+  <!-- ========================================================================= -->
+  <div id="view-home" class="view-page active-view">
+    <section id="hero" class="relative min-h-[70vh] flex items-center justify-center pt-8 pb-12 px-4 z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 dark:bg-darkCard/80 border border-rose-200/80 dark:border-purple-900/60 shadow-sm text-xs sm:text-sm font-medium text-rose-600 dark:text-rose-300 mb-6 animate-float-slow">
+          <span class="animate-spin-slow">✨</span>
+          <span>Duniya ki sabse pyaari (aur sabse busy) ladki ke naam</span>
+          <span>🌸</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight mb-6 leading-[1.1]">
+          Oye <span class="animated-gradient-text">Riya!</span> <span class="inline-block animate-pulse-soft">💖</span>
+        </h1>
+
+        <p class="text-lg sm:text-2xl text-gray-700 dark:text-gray-200 max-w-2xl mx-auto font-light leading-relaxed mb-8">
+          Sirf ek best friend nahi, balki meri life ka sabse khoobsurat hissa. Yeh chhota sa digital jahaan maine dil se sirf <span class="font-semibold text-rose-500 dark:text-rose-400">tumhare liye</span> banaya hai.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 mb-10 max-w-xl mx-auto">
+          <span class="px-3.5 py-1.5 rounded-2xl bg-amber-100/80 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 text-xs sm:text-sm font-semibold border border-amber-200 dark:border-amber-900">
+            👑 24/7 World's Busiest Prime Minister
+          </span>
+          <span class="px-3.5 py-1.5 rounded-2xl bg-rose-100/80 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 text-xs sm:text-sm font-semibold border border-rose-200 dark:border-rose-900">
+            🥺 "Sorry Yaar" Specialist
+          </span>
+          <span class="px-3.5 py-1.5 rounded-2xl bg-pink-100/80 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 text-xs sm:text-sm font-semibold border border-pink-200 dark:border-pink-900">
+            🤍 Aman Ki Forever #1 Priority
+          </span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button 
+            onclick="showView('about')" 
+            class="w-full sm:w-auto px-9 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white font-bold text-base shadow-xl shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Poori Story Shuru Karo 🌸</span>
+            <span>➡️</span>
+          </button>
+          <button 
+            onclick="showView('letter')" 
+            class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel text-rose-600 dark:text-rose-300 font-bold text-base hover:bg-white/90 dark:hover:bg-darkCard hover:scale-105 active:scale-95 transition-all border border-rose-300 dark:border-purple-800 flex items-center justify-center gap-2 cursor-pointer"
+          >
+            <span>Aman Ka Secret Khat 💌</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Directory Hub Cards on Home (Clean Navigation Portal) -->
+    <section class="py-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-2 uppercase tracking-wider">
+          <span>✨ Explore Chapters</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 dark:text-white">
+          Kahan Se Shuru Karna Chahti Ho? 🌸
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+          Kisi bhi card pe tap karo aur wo specific section khol kar dekho:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div onclick="showView('about')" class="p-6 rounded-3xl glass-panel hover:bg-rose-50/70 dark:hover:bg-darkCard border border-rose-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">🌷</span>
+            <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Chapter 1</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Tum Kyun Special Ho</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Aman ke dil se 6 baatein jo tumhein sabse alag banati hain.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rose-100 dark:border-purple-900/30 text-xs font-bold text-rose-500 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>✨</span>
+          </div>
+        </div>
+
+        <div onclick="showView('story')" class="p-6 rounded-3xl glass-panel hover:bg-purple-50/70 dark:hover:bg-darkCard border border-purple-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">⏳</span>
+            <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">Chapter 2</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Hamari Kahani Timeline</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Pehli baatcheet se lekar ab tak ke saare milestones.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-purple-100 dark:border-purple-900/30 text-xs font-bold text-purple-500 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>📖</span>
+          </div>
+        </div>
+
+        <div onclick="showView('busy')" class="p-6 rounded-3xl glass-panel hover:bg-amber-50/70 dark:hover:bg-darkCard border border-amber-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">👑</span>
+            <span class="text-xs font-bold text-amber-600 uppercase tracking-wider">Chapter 3</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Busy Queen & Mood Meter</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">24hr schedule, Sorry counter & Aman ka live animated drama!</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-amber-100 dark:border-purple-900/30 text-xs font-bold text-amber-600 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>🎭</span>
+          </div>
+        </div>
+
+        <div onclick="showView('jokes')" class="p-6 rounded-3xl glass-panel hover:bg-pink-50/70 dark:hover:bg-darkCard border border-pink-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">😂</span>
+            <span class="text-xs font-bold text-pink-500 uppercase tracking-wider">Chapter 4</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Secret Inside Jokes</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">8 3D flip cards jisme hamari masti aur secret raaz hain.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-pink-100 dark:border-purple-900/30 text-xs font-bold text-pink-500 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>🔄</span>
+          </div>
+        </div>
+
+        <div onclick="showView('love')" class="p-6 rounded-3xl glass-panel hover:bg-rose-50/70 dark:hover:bg-darkCard border border-rose-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">💖</span>
+            <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Chapter 5</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Pyaari Baatein & Tareef</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Love checklist, instant compliment aur virtual jhappi!</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-rose-100 dark:border-purple-900/30 text-xs font-bold text-rose-500 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>🌸</span>
+          </div>
+        </div>
+
+        <div onclick="showView('games')" class="p-6 rounded-3xl glass-panel hover:bg-indigo-50/70 dark:hover:bg-darkCard border border-indigo-200/80 dark:border-purple-900/40 hover:scale-102 hover:shadow-xl transition-all cursor-pointer group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl group-hover:scale-110 transition-transform">🎮</span>
+            <span class="text-xs font-bold text-indigo-500 uppercase tracking-wider">Chapter 6</span>
+          </div>
+          <div>
+            <h4 class="text-lg font-display font-bold text-gray-900 dark:text-white mb-1">Riya's Game Zone</h4>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Bestie Quiz, Joy Catcher & Mood Oracle Wheel.</p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-indigo-100 dark:border-purple-900/30 text-xs font-bold text-indigo-500 flex items-center justify-between">
+            <span>Kholo ➡️</span>
+            <span>🕹️</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Grand Letter Highlight Banner on Home -->
+      <div onclick="showView('letter')" class="mt-6 p-6 rounded-3xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white shadow-xl hover:scale-101 transition-all cursor-pointer flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center sm:text-left">
+          <span class="text-4xl animate-bounce">💌</span>
+          <div>
+            <h4 class="text-xl font-display font-bold">Aman Ka Secret Khat & Grand Finale</h4>
+            <p class="text-xs text-rose-100 mt-0.5">3D wax seal stamp khol kar padho dil ki baatein...</p>
+          </div>
+        </div>
+        <button class="px-6 py-2.5 rounded-2xl bg-white text-rose-600 font-bold text-xs shadow-md whitespace-nowrap">
+          Khat Kholo 💌
+        </button>
+      </div>
+
+    </section>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 2: ABOUT HER (TUM KYUN SPECIAL HO) -->
+  <!-- ========================================================================= -->
+  <div id="view-about" class="view-page py-6">
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>✨ The Riya Appreciation Club</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Tum Meri Sabse Favorite Kyun Ho? 🌷
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Is duniya mein 800 crore log hain, par tumhare jaisa dil aur vibe kisi ke paas nahi hai:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      
+      <!-- Card 1 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-rose-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            🎯
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Goals Ko Leke Super Serious
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Apne future aur sapno ko lekar tumhara dedication next level hai. Jab tum kuch thaan leti ho na, toh karke hi dam leti ho. It's truly inspiring!
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-rose-100 dark:border-purple-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-rose-500">Next Level Jazba</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-purple-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-purple-100 dark:bg-purple-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            🏡
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Family Ke Liye Sone Jaisa Dil
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Apne parivaar aur apno ki jis tarah tum care karti ho aur protect karti ho, wo dikhata hai ki tumhara dil kitna saaf aur loyal hai.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-purple-100 dark:border-purple-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-purple-500">Pure Loyalty</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-200 text-purple-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-pink-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-pink-100 dark:bg-pink-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            😂
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Hassi Ka Unlimited Pitara
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Tum mere sabse kharab din ko bhi hassi mein badal sakti ho. Tumhari random baatein, savage roasts aur unhinged jokes pure comedy gold hain!
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-pink-100 dark:border-pink-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-pink-500">Hassi Ki Machine</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-pink-50 dark:bg-pink-950/60 hover:bg-pink-200 text-pink-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-rose-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            🌙
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Mera 2 AM Safe Space
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Tumhare saath mujhe kabhi filter lagane ki zaroorat nahi padti. Raat ke 2 baje ka koi random thought ho ya dil ki baat, tum pehli insaan ho jiske paas main aata hoon.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-rose-100 dark:border-purple-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-rose-500">Zero Judgement</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-rose-50 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-amber-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            ✨
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Bina Bole Samajhne Wali Care
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Tum wo choti choti baatein notice kar leti ho jo baaki log miss kar dete hain—mera mood, meri khamoshi aur mujhe kab ek warm support chahiye hota hai.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-amber-100 dark:border-purple-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-amber-500">Pure Sukoon</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-950/60 hover:bg-amber-200 text-amber-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="group p-8 rounded-3xl glass-panel hover:shadow-2xl hover:shadow-pink-400/20 hover:-translate-y-2 transition-all duration-300 border border-white/80 dark:border-purple-900/40 relative overflow-hidden flex flex-col justify-between">
+        <div>
+          <div class="w-14 h-14 rounded-2xl bg-pink-100 dark:bg-pink-950/80 flex items-center justify-center text-3xl mb-5 group-hover:scale-110 transition-transform">
+            🌷
+          </div>
+          <h3 class="text-xl font-bold font-display text-gray-900 dark:text-white mb-2.5">
+            Ekdum One In A Million
+          </h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Tumhari cute nautanki, tumhara bina matlab logon ki help karna aur tumhari pyari si muskurahat—Riya, tumhare jaisa koi doosra ho hi nahi sakta!
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-pink-100 dark:border-purple-900/30 flex items-center justify-between">
+          <span class="text-xs font-semibold text-pink-500">Meri Favorite</span>
+          <button onclick="popHeart(this)" class="text-xs px-2.5 py-1 rounded-full bg-pink-50 dark:bg-pink-950/60 hover:bg-pink-200 text-pink-600 transition-colors">
+            ❤️ <span class="like-count">100</span>%
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('home')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Home Hub</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('story')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Agla Page: Hamari Kahani ⏳</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 3: OUR STORY (HAMARI KAHANI TIMELINE) -->
+  <!-- ========================================================================= -->
+  <div id="view-story" class="view-page py-6">
+    <section id="story" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-600 dark:text-purple-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>📖 Hamari Journey</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Hamari Yaadgaar Kahani ⏳
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Tumhare saath bitaya har ek lamha ek core memory ban chuka hai:
+      </p>
+    </div>
+
+    <div class="relative wrap overflow-hidden p-4 sm:p-10">
+      <div class="absolute left-6 sm:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-rose-400 via-pink-400 to-purple-500 -translate-x-1/2 rounded-full"></div>
+
+      <!-- Milestone 1 -->
+      <div class="mb-12 flex items-center w-full relative">
+        <div class="hidden sm:block w-1/2 pr-8 text-right">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Chapter 01</span>
+          <h4 class="text-xl font-display font-bold text-gray-900 dark:text-white mt-1">Pehli Baatchit</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+            Jis din humari pehli baar baat hui thi. Tab pata nahi tha ki ek simple si baatcheet aage chalke meri zindagi ka sabse khoobsurat hissa ban jayegi.
+          </p>
+        </div>
+        <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-rose-500 text-white shadow-lg shadow-rose-500/40 border-4 border-white dark:border-darkBg absolute left-6 sm:left-1/2 -translate-x-1/2 text-lg">
+          🌱
+        </div>
+        <div class="w-full sm:w-1/2 pl-14 sm:pl-8">
+          <div class="p-4 rounded-2xl bg-rose-50/50 dark:bg-rose-950/20 text-xs text-rose-600 dark:text-rose-300 font-medium">
+            "Kismat ne sach mein kamaal kar diya tha us din!" 💫
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 2 -->
+      <div class="mb-12 flex items-center w-full relative sm:flex-row-reverse">
+        <div class="hidden sm:block w-1/2 pl-8 text-left">
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-500">Chapter 02</span>
+          <h4 class="text-xl font-display font-bold text-gray-900 dark:text-white mt-1">Late Night 3 AM Calls</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+            Raat-raat bhar jaag kar deep baatein karna, ek dusre ko roast karna aur realize karna ki hum dono ki vibe kitni match karti hai!
+          </p>
+        </div>
+        <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-purple-500 text-white shadow-lg shadow-purple-500/40 border-4 border-white dark:border-darkBg absolute left-6 sm:left-1/2 -translate-x-1/2 text-lg">
+          ☕
+        </div>
+        <div class="w-full sm:w-1/2 pl-14 sm:pr-8 sm:text-right">
+          <div class="p-4 rounded-2xl bg-purple-50/50 dark:bg-purple-950/20 text-xs text-purple-600 dark:text-purple-300 font-medium">
+            "Neend? Wo kya hoti hai jab Riya se baat ho rahi ho!" 🌙
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 3 -->
+      <div class="mb-12 flex items-center w-full relative">
+        <div class="hidden sm:block w-1/2 pr-8 text-right">
+          <span class="text-xs font-bold uppercase tracking-wider text-pink-500">Chapter 03</span>
+          <h4 class="text-xl font-display font-bold text-gray-900 dark:text-white mt-1">Sabse Funny Kaand & Disaster</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+            Wo time jab plan poori tarah flop ho gaya tha, aur hum pareshan hone ke bajaye ek dusre ko dekh kar 20 minute tak pet pakad ke haste rahe the!
+          </p>
+        </div>
+        <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-pink-500 text-white shadow-lg shadow-pink-500/40 border-4 border-white dark:border-darkBg absolute left-6 sm:left-1/2 -translate-x-1/2 text-lg">
+          🤣
+        </div>
+        <div class="w-full sm:w-1/2 pl-14 sm:pl-8">
+          <div class="p-4 rounded-2xl bg-pink-50/50 dark:bg-pink-950/20 text-xs text-pink-600 dark:text-pink-300 font-medium">
+            "Har museebat mein bhi hasna sirf tumhare saath possible hai!" 🍕
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 4 -->
+      <div class="mb-12 flex items-center w-full relative sm:flex-row-reverse">
+        <div class="hidden sm:block w-1/2 pl-8 text-left">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-500">Chapter 04</span>
+          <h4 class="text-xl font-display font-bold text-gray-900 dark:text-white mt-1">Mushkil Dino Mein Saath</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+            Jab stress aur mushkil din aaye, tab ek dusre ke saath bina kisi condition ke khade rehne ne humari bond ko mazboot banaya.
+          </p>
+        </div>
+        <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-500/40 border-4 border-white dark:border-darkBg absolute left-6 sm:left-1/2 -translate-x-1/2 text-lg">
+          🛡️
+        </div>
+        <div class="w-full sm:w-1/2 pl-14 sm:pr-8 sm:text-right">
+          <div class="p-4 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 text-xs text-indigo-600 dark:text-indigo-300 font-medium">
+            "Main hamesha tumhare peeche khada hoon, no matter what." 🤍
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 5 -->
+      <div class="flex items-center w-full relative">
+        <div class="hidden sm:block w-1/2 pr-8 text-right">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Chapter 05 & Beyond</span>
+          <h4 class="text-xl font-display font-bold text-gray-900 dark:text-white mt-1">Sirf Dost Nahi, Usse Bohot Zyada</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">
+            Peeche mudke dekhta hoon toh realize hota hai ki tum meri life ki sabse khoobsurat blessing ho.
+          </p>
+        </div>
+        <div class="z-20 flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 text-white shadow-xl shadow-rose-500/50 border-4 border-white dark:border-darkBg absolute left-6 sm:left-1/2 -translate-x-1/2 text-lg animate-pulse-soft">
+          💖
+        </div>
+        <div class="w-full sm:w-1/2 pl-14 sm:pl-8">
+          <div class="p-4 rounded-2xl bg-rose-100/80 dark:bg-rose-950/40 text-xs text-rose-700 dark:text-rose-300 font-bold">
+            "Hamari kahani toh bas abhi shuru hui hai... ♾️✨"
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('about')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Special Kyun Ho</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('busy')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Agla Page: Busy Queen & Mood Meter 👑</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 4: BUSY QUEEN & LIVE MOOD METER -->
+  <!-- ========================================================================= -->
+  <div id="view-busy" class="view-page py-6">
+    <section id="busy" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-700 dark:text-amber-300 text-xs font-bold mb-3 tracking-wider uppercase border border-amber-300 dark:border-amber-800">
+        <span>⌛ The "Main Bohot Busy Hoon" Department</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Riya Ka 24-Ghante Ka Busy Schedule 👑
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Duniya mein sab ke liye waqt nikal jata hai, par jab Aman ki baari aati hai toh seedha <b>"Sorry yaar, main bohot busy hoon"</b> ka card nikal aata hai! 😂
+      </p>
+    </div>
+
+    <!-- 3 Interactive Cards / Widgets Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Card 1: Time Breakdown (Funny Chart) -->
+      <div class="p-8 rounded-3xl glass-panel shadow-xl border border-amber-200 dark:border-amber-900/40 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">📊</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 text-[11px] font-bold">Certified Report</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white mb-3">
+            Riya's Daily Time Distribution
+          </h3>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mb-6">
+            Aman's Research Institute of Riya's Daily Priorities:
+          </p>
+
+          <div class="space-y-3.5 text-xs">
+            <div>
+              <div class="flex justify-between font-semibold mb-1">
+                <span>📱 Instagram Reels & Drama</span>
+                <span class="text-rose-500 font-bold">5 Hours (100%)</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                <div class="bg-rose-500 h-full w-[95%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold mb-1">
+                <span>😴 Sona & Khayali Pulao</span>
+                <span class="text-purple-500 font-bold">9 Hours (100%)</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                <div class="bg-purple-500 h-full w-[90%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold mb-1">
+                <span>💅 Sabse Gossip & Baatein</span>
+                <span class="text-pink-500 font-bold">4 Hours (80%)</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                <div class="bg-pink-500 h-full w-[80%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between font-semibold mb-1">
+                <span>🤍 Aman Ke Liye Time & Priority</span>
+                <span class="text-amber-500 font-bold">0.1% (Buffering... 🔄)</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
+                <div class="bg-amber-400 h-full w-[5%] animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-amber-100 dark:border-amber-900/30 text-center">
+          <p class="text-[11px] text-amber-600 dark:text-amber-400 italic">
+            "Aman is patiently waiting in queue since 2006..." ⏳
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: The "Sorry" Master Card Vault -->
+      <div class="p-8 rounded-3xl glass-panel shadow-xl border border-rose-200 dark:border-purple-900/40 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">🥺</span>
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[11px] font-bold">The Magic Card</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white mb-2">
+            Riya's Universal "Sorry" Card
+          </h3>
+          <p class="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+            Galti karo, der se reply karo, call attend mat karo... aur fir ek cute sa puppy face banakar <b>"Sorry na Aman 🥺"</b> bol do! Aur Aman pighal jaata hai!
+          </p>
+
+          <div class="p-4 rounded-2xl bg-rose-50 dark:bg-darkCard border border-rose-200 dark:border-purple-900/50 text-center space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Sorry Usage Counter</span>
+            <div class="text-3xl font-display font-bold text-gray-900 dark:text-white" id="sorryCounter">
+              1,489 Times
+            </div>
+            <p class="text-[11px] text-gray-500 dark:text-gray-400 italic">
+              (Unlimited lifetime quota available for Riya)
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <button 
+            onclick="triggerSorryExcuse()" 
+            class="w-full py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-bold text-xs shadow-md shadow-rose-500/20 active:scale-95 transition-all"
+          >
+            Click Karo For Riya's Top Excuses 😂
+          </button>
+          <p id="sorryExcuseText" class="hidden mt-3 text-xs text-center text-rose-600 dark:text-rose-400 font-semibold bg-rose-50 dark:bg-rose-950/40 p-2 rounded-xl"></p>
+        </div>
+      </div>
+
+      <!-- Card 3: Aman's Sweet Priority Agreement / Contract -->
+      <div class="p-8 rounded-3xl glass-panel shadow-xl border border-purple-200 dark:border-purple-900/40 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl">📜</span>
+            <span class="px-2.5 py-1 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 text-[11px] font-bold">Official Agreement</span>
+          </div>
+          <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white mb-2">
+            The Priority & Time Contract
+          </h3>
+          <p class="text-xs text-gray-600 dark:text-gray-300 mb-4">
+            Non-negotiable terms and conditions from Aman to Riya:
+          </p>
+
+          <div class="space-y-2.5 text-xs text-gray-700 dark:text-gray-300">
+            <div class="flex items-start gap-2">
+              <span>✅</span>
+              <span>Din mein kam se kam 15 minute uninterrupted baatcheet.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span>✅</span>
+              <span>"Main busy hoon" bolne par agle din double attention dena hoga.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span>✅</span>
+              <span>Ab se sirf "Sorry" bolne se kaam nahi chalega—Aman ko priority deni padegi!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-purple-100 dark:border-purple-900/30 text-center">
+          <button 
+            id="signContractBtn" 
+            onclick="signPriorityContract()" 
+            class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-rose-500 hover:from-purple-700 hover:to-rose-600 text-white font-bold text-xs shadow-lg shadow-purple-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+          >
+            <span>Riya, Yahan Sign Karo ✍️</span>
+          </button>
+          <div id="contractSignedBadge" class="hidden mt-3 text-xs text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center gap-1">
+            <span>🎉 Contract Officially Sealed with Love! 💖</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- INTERACTIVE "AMAN KA DRAMA & MOOD METER" (RONE & RUTHNE WALA CORNER) -->
+    <!-- ========================================================================= -->
+    <div class="mt-12 p-8 sm:p-10 rounded-3xl glass-panel shadow-2xl border border-rose-300/80 dark:border-purple-800/60 max-w-3xl mx-auto relative overflow-hidden">
+      
+      <div class="text-center mb-6">
+        <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Live Drama & Mood Tracker 🎭</span>
+        <h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mt-1">
+          Aman Ka Mood Meter: Ruthna & Rona Corner 😤😭
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+          Riya jab bolti hai <i>"Main busy hoon baad mein baat karti hoon"</i>, tab Aman ka haal:
+        </p>
+      </div>
+
+      <!-- Animated Character Stage -->
+      <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-white/70 dark:bg-darkCard/70 border border-rose-200 dark:border-purple-900/40 shadow-inner mb-6 relative">
+        
+        <!-- Interactive Character Display -->
+        <div id="dramaAvatarContainer" class="w-36 h-36 relative flex items-center justify-center mb-3">
+          
+          <!-- State 1: Angry / Roothe Huye Aman (Default) -->
+          <div id="charAngry" class="w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+            <!-- Animated SVG Angry Face with Steam -->
+            <svg viewBox="0 0 100 100" class="w-28 h-28 filter drop-shadow-lg animate-pulse-soft">
+              <!-- Head -->
+              <circle cx="50" cy="55" r="38" fill="#fda4af" stroke="#e11d48" stroke-width="2" />
+              <!-- Angry Eyebrows -->
+              <line x1="32" y1="38" x2="44" y2="44" stroke="#881337" stroke-width="3.5" stroke-linecap="round" />
+              <line x1="68" y1="38" x2="56" y2="44" stroke="#881337" stroke-width="3.5" stroke-linecap="round" />
+              <!-- Grumpy Eyes -->
+              <circle cx="38" cy="48" r="4" fill="#881337" />
+              <circle cx="62" cy="48" r="4" fill="#881337" />
+              <!-- Puffy Cheeks -->
+              <circle cx="28" cy="60" r="6" fill="#fb7185" opacity="0.6" />
+              <circle cx="72" cy="60" r="6" fill="#fb7185" opacity="0.6" />
+              <!-- Pouting Ruthne Wala Mouth -->
+              <path d="M 38 72 Q 50 64 62 72" fill="transparent" stroke="#881337" stroke-width="3.5" stroke-linecap="round" />
+              <!-- Steam from ears -->
+              <path d="M 12 45 Q 8 38 12 30" fill="transparent" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" class="animate-bounce" />
+              <path d="M 88 45 Q 92 38 88 30" fill="transparent" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" class="animate-bounce" />
+            </svg>
+            <span class="text-xs font-bold text-rose-600 dark:text-rose-400 mt-1">Status: 100% Roothe Huye 😤</span>
+          </div>
+
+          <!-- State 2: Rone Wala Aman (Hidden by default) -->
+          <div id="charCrying" class="hidden w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+            <svg viewBox="0 0 100 100" class="w-28 h-28 filter drop-shadow-lg">
+              <!-- Head -->
+              <circle cx="50" cy="55" r="38" fill="#fed7aa" stroke="#ea580c" stroke-width="2" />
+              <!-- Sad Eyebrows -->
+              <path d="M 32 42 Q 38 36 44 42" fill="transparent" stroke="#7c2d12" stroke-width="3" stroke-linecap="round" />
+              <path d="M 56 42 Q 62 36 68 42" fill="transparent" stroke="#7c2d12" stroke-width="3" stroke-linecap="round" />
+              <!-- Crying Eyes with Waterfalls -->
+              <circle cx="38" cy="48" r="4" fill="#7c2d12" />
+              <circle cx="62" cy="48" r="4" fill="#7c2d12" />
+              <!-- Tears Waterfall -->
+              <path d="M 38 52 Q 34 68 38 85" fill="transparent" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" class="animate-pulse" />
+              <path d="M 62 52 Q 66 68 62 85" fill="transparent" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" class="animate-pulse" />
+              <!-- Sad Quivering Mouth -->
+              <path d="M 40 73 Q 50 67 60 73" fill="transparent" stroke="#7c2d12" stroke-width="3" stroke-linecap="round" />
+            </svg>
+            <span class="text-xs font-bold text-sky-600 dark:text-sky-400 mt-1">Status: 200% Rona Dhona 😭</span>
+          </div>
+
+          <!-- State 3: Puppy Eyes Riya "Sorry" Mode -->
+          <div id="charPuppy" class="hidden w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+            <svg viewBox="0 0 100 100" class="w-28 h-28 filter drop-shadow-lg animate-pulse-soft">
+              <!-- Head -->
+              <circle cx="50" cy="55" r="38" fill="#ffe4e6" stroke="#f43f5e" stroke-width="2" />
+              <!-- Big Anime Puppy Eyes with Sparkles -->
+              <circle cx="37" cy="48" r="9" fill="#1e1b4b" />
+              <circle cx="35" cy="45" r="3" fill="#ffffff" />
+              <circle cx="39" cy="51" r="1.5" fill="#ffffff" />
+              
+              <circle cx="63" cy="48" r="9" fill="#1e1b4b" />
+              <circle cx="61" cy="45" r="3" fill="#ffffff" />
+              <circle cx="65" cy="51" r="1.5" fill="#ffffff" />
+              
+              <!-- Blushing Pink Cheeks -->
+              <ellipse cx="27" cy="58" rx="6" ry="4" fill="#fb7185" opacity="0.7" />
+              <ellipse cx="73" cy="58" rx="6" ry="4" fill="#fb7185" opacity="0.7" />
+              
+              <!-- Cute Pouting Mouth -->
+              <path d="M 46 68 Q 50 64 54 68" fill="transparent" stroke="#881337" stroke-width="3" stroke-linecap="round" />
+              <!-- Hands 👉👈 -->
+              <text x="50" y="88" text-anchor="middle" font-size="14">👉🥺👈</text>
+            </svg>
+            <span class="text-xs font-bold text-pink-600 dark:text-pink-400 mt-1">Status: "Sorry na Aman 🥺"</span>
+          </div>
+
+          <!-- State 4: Happy / Mana Hua Aman -->
+          <div id="charHappy" class="hidden w-full h-full flex flex-col items-center justify-center transition-all duration-500">
+            <svg viewBox="0 0 100 100" class="w-28 h-28 filter drop-shadow-lg animate-bounce">
+              <!-- Glowing Aura -->
+              <circle cx="50" cy="55" r="42" fill="#fef08a" opacity="0.3" class="animate-pulse" />
+              <!-- Head -->
+              <circle cx="50" cy="55" r="38" fill="#fed7aa" stroke="#f97316" stroke-width="2" />
+              <!-- Heart Eyes -->
+              <text x="38" y="52" text-anchor="middle" font-size="16">💖</text>
+              <text x="62" y="52" text-anchor="middle" font-size="16">💖</text>
+              <!-- Big Happy Smile -->
+              <path d="M 36 64 Q 50 82 64 64" fill="#e11d48" stroke="#881337" stroke-width="2.5" />
+              <!-- Blushing -->
+              <circle cx="28" cy="62" r="5" fill="#f43f5e" opacity="0.6" />
+              <circle cx="72" cy="62" r="5" fill="#f43f5e" opacity="0.6" />
+            </svg>
+            <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-1">Status: 1000% Khush & Maan Gaya! 🥰</span>
+          </div>
+
+        </div>
+
+        <p id="dramaDialogue" class="text-xs text-gray-700 dark:text-gray-300 font-medium italic text-center max-w-md">
+          "Aman abhi naraz baitha hai... Keh raha hai 'Riya ke paas sabke liye time hai, bas mere liye hi nahi!' 😤"
+        </p>
+      </div>
+
+      <!-- Interactive Action Buttons (Aman Ko Manao) -->
+      <div class="space-y-2.5">
+        <p class="text-[11px] font-bold text-center text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+          Riya, Aman ko manane ke options:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+          <button 
+            onclick="manaoAman('chocolate')" 
+            class="p-3 rounded-2xl bg-amber-100/80 dark:bg-amber-950/60 hover:bg-amber-200 text-amber-800 dark:text-amber-300 text-xs font-bold border border-amber-300 dark:border-amber-800 flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+          >
+            <span>🍫 Give Chocolate</span>
+          </button>
+          
+          <button 
+            onclick="manaoAman('pizza')" 
+            class="p-3 rounded-2xl bg-orange-100/80 dark:bg-orange-950/60 hover:bg-orange-200 text-orange-800 dark:text-orange-300 text-xs font-bold border border-orange-300 dark:border-orange-800 flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+          >
+            <span>🍕 Feed Pizza</span>
+          </button>
+          
+          <button 
+            onclick="manaoAman('priority')" 
+            class="p-3 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white text-xs font-bold shadow-md shadow-rose-500/30 flex items-center justify-center gap-1.5 active:scale-95 transition-all hover:scale-105"
+          >
+            <span>💖 #1 Priority + 15 Min Call</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Heartfelt Bottom Note -->
+    <div class="mt-10 p-6 rounded-3xl bg-gradient-to-r from-rose-100/70 via-pink-100/70 to-purple-100/70 dark:from-rose-950/30 dark:via-purple-950/30 dark:to-darkCard border border-rose-200 dark:border-purple-900/50 max-w-3xl mx-auto text-center">
+      <p class="text-sm sm:text-base font-display font-semibold text-gray-900 dark:text-white leading-relaxed">
+        "Masti mazaak alag hai Riya... Par sach mein, tumhara thoda sa waqt aur thodi si priority hi mere poore din ka sabse bada sukoon hoti hai. Kyunki mere liye tum hamesha #1 ho." 🤍
+      </p>
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('story')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Hamari Kahani</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('jokes')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Agla Page: Secret Inside Jokes 😂</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 5: INSIDE JOKES (3D FLIP CARDS) -->
+  <!-- ========================================================================= -->
+  <div id="view-jokes" class="view-page py-6">
+    <section id="jokes" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-100 dark:bg-pink-950/60 text-pink-600 dark:text-pink-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>🤫 Top Secret Vault</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Hamare Secret Inside Jokes 😂
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Cards pe tap karo aur wo secret yaadein dekho jo sirf hum dono samajh sakte hain:
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      
+      <!-- Flip Card 1: Sorry Queen -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-rose-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">🥺</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-rose-500 font-bold uppercase tracking-wider mb-1">Classic Dialogue #1</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Sorry yaar, sach mein time nahi mila!"
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">...while watching 47 cat reels and chatting with 10 people.</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-rose-500 to-pink-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-rose-200">Asli Kissa</span>
+              <span>💖</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Tumhara universal 'Sorry' itna cute hota hai ki gussa aane se pehle hi gayab ho jaata hai! Par agli baar se thoda sa time nikalna padega boss!
+            </p>
+            <span class="text-[11px] text-rose-200 italic">Verdict: Sorry bolke bachne wali Queen 👑</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 2: Food Stealer -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-purple-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">🍕</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-purple-500 font-bold uppercase tracking-wider mb-1">Dialogue #2</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Mujhe bhookh nahi hai, bas ek bite."
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">...aur agle 2 minute mein mera 80% khana gayab!</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-purple-600 to-indigo-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-purple-200">Asli Kissa</span>
+              <span>🍟</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              French fries ho ya dessert, tumhare 'ek bite' ka matlab poora plate saaf hota hai! Par main khushi khushi apna saara khana tumhare naam kar doon.
+            </p>
+            <span class="text-[11px] text-purple-200 italic">Verdict: Chor pakdi gayi 👩‍⚖️🍟</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 3: 5 Minutes Late -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-pink-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">⏰</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-pink-500 font-bold uppercase tracking-wider mb-1">Dialogue #3</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Bas 5 minute mein nikal rahi hoon!"
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">...jabki abhi tak bed pe aaram se leti hui ho.</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-pink-500 to-rose-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-pink-200">Asli Kissa</span>
+              <span>💅</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Riya Standard Time (RST) ke hisaab se 5 min = 35 minutes! Par tumhara intezaar karna bhi humesha worth it hota hai.
+            </p>
+            <span class="text-[11px] text-pink-200 italic">Verdict: Perfection takes time 💅</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 4: Detective Skills -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-amber-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">🕵️‍♀️</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-amber-500 font-bold uppercase tracking-wider mb-1">Dialogue #4</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                CID Agent Riya
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">Kisi ki bhi 3 minute mein kundali nikaal lena.</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-amber-500 to-rose-500 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-amber-200">Asli Kissa</span>
+              <span>🔍</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Tumhari stalking aur investigation skills FBI se bhi tez hain! Koi baat pata lagani ho toh Riya 2 minute mein sab sach nikaal leti hai.
+            </p>
+            <span class="text-[11px] text-amber-200 italic">Verdict: Top Secret Detective 🕶️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 5: Drama Queen -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-emerald-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">🎭</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-emerald-500 font-bold uppercase tracking-wider mb-1">Dialogue #5</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Aaj main bilkul calm hoon."
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">...aur fir choti si baat pe full Bollywood drama shuru!</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-emerald-200">Asli Kissa</span>
+              <span>🎬</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Wo dramatic expressions aur gasps—tum har normal baat ko film bana deti ho aur tumhari yehi nautanki toh mujhe sabse zyada pyaari lagti hai!
+            </p>
+            <span class="text-[11px] text-emerald-200 italic">Verdict: Oscar Winner Drama Queen 🏆</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 6: Forever Bond -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-rose-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">✨</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-rose-500 font-bold uppercase tracking-wider mb-1">Dialogue #6</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Hum dono kafi hain ek dusre ke liye."
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">Hamari dosti ka sabse pyara sach.</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-rose-500 to-purple-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-rose-200">Asli Kissa</span>
+              <span>♾️</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Chahe kitni bhi nok-jhok ho ya time ki kami, jab tak hum dono ke paas ek dusre ka saath hai, hum kisi bhi mushkil ko paar kar lenge!
+            </p>
+            <span class="text-[11px] text-rose-200 italic">Verdict: Unbreakable Bond 🔒💖</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 7: Emergency Gossip -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-fuchsia-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">😱</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-fuchsia-100 dark:bg-fuchsia-950 text-fuchsia-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-fuchsia-500 font-bold uppercase tracking-wider mb-1">Dialogue #7</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Arey sun na, bohot bada kissa hua!"
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">...aur agle 45 minute tak non-stop radio commentary!</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-fuchsia-200">Asli Kissa</span>
+              <span>🎙️</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Bina saans liye 45 minute tak aisi drama reporting hoti hai jaise live breaking news chal rahi ho! Aur main har ek line dhyan se sunta hoon!
+            </p>
+            <span class="text-[11px] text-fuchsia-200 italic">Verdict: Prime Time News Anchor 🎤</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flip Card 8: Ghosting vs Fast Reply -->
+      <div class="h-64 cursor-pointer perspective-1000 group" onclick="toggleCardFlip(this)">
+        <div class="card-inner relative w-full h-full transform-style-3d transition-transform duration-700 rounded-3xl shadow-lg">
+          <div class="absolute inset-0 w-full h-full backface-hidden rounded-3xl glass-panel p-6 flex flex-col justify-between border border-cyan-200/80 dark:border-purple-900/40">
+            <div class="flex justify-between items-start">
+              <span class="text-4xl">👻</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-600">Tap karke dekho 🔄</span>
+            </div>
+            <div>
+              <p class="text-xs text-cyan-500 font-bold uppercase tracking-wider mb-1">Dialogue #8</p>
+              <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">
+                "Aman: Zinda ho? Riya: Haan thoda busy thi!"
+              </h3>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400 italic">Seen at 2 PM... Reply after 2 days!</p>
+          </div>
+          <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl bg-gradient-to-br from-cyan-600 to-blue-600 text-white p-6 flex flex-col justify-between shadow-xl">
+            <div class="flex justify-between items-center">
+              <span class="text-xs uppercase font-bold tracking-widest text-cyan-200">Asli Kissa</span>
+              <span>📱</span>
+            </div>
+            <p class="text-sm sm:text-base leading-relaxed font-medium">
+              Important message ka reply 2 din baad aayega, par agar koi gossip reel bheji toh 0.2 second mein 'OMG HAHA' aa jayega!
+            </p>
+            <span class="text-[11px] text-cyan-200 italic">Verdict: Selective Fast Replier ⚡💅</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('busy')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Busy Queen</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('love')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Agla Page: Things I Love & Tareef 💖</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 6: THINGS I LOVE & INSTANT COMPLIMENTS -->
+  <!-- ========================================================================= -->
+  <div id="view-love" class="view-page py-6">
+    <section id="things" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto relative z-10">
+    <div class="p-8 sm:p-12 rounded-3xl glass-panel shadow-2xl border border-white/80 dark:border-purple-900/40">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+          <span>💖 Pyaari Baaton Ka Checklist</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 dark:text-white mb-2">
+          Wo Baatein Jo Mujhe Tumme Sabse Pyaari Lagti Hain
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-300">
+          Hearts pe click karke unlock karo:
+        </p>
+      </div>
+
+      <div class="space-y-3.5" id="loveList">
+        
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Jis tarah tum apne apno ke liye hamesha stand leti ho.</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Tumhari wo pyaari si smile jo kisi ka bhi bura din chamka de.</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Apne goals aur career ko lekar tumhara serious aur dedicated attitude.</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Tumhare wo cute voice notes jab tum kisi baat pe excited ya chidi hui hoti ho!</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Bina mere bole bhi samajh jaana ki mere dil mein kya chal raha hai.</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+        <div class="love-item p-4 rounded-2xl bg-white/60 dark:bg-darkCard/60 border border-rose-100 dark:border-purple-900/30 flex items-center justify-between hover:bg-rose-50/60 dark:hover:bg-purple-950/30 transition-all cursor-pointer" onclick="toggleLoveCheck(this)">
+          <div class="flex items-center gap-3">
+            <span class="heart-box w-7 h-7 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-500 flex items-center justify-center text-sm font-bold transition-transform">🤍</span>
+            <span class="text-sm sm:text-base font-medium text-gray-800 dark:text-gray-200">Tumhara mere saath hona hi mere liye sabse bada sukoon hai.</span>
+          </div>
+          <span class="text-xs text-rose-400 font-semibold opacity-0 check-tag transition-opacity">Certified 💖</span>
+        </div>
+
+      </div>
+
+      <div class="mt-8 text-center">
+        <button onclick="checkAllLove()" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-300 hover:bg-rose-200 transition-all">
+          ✨ Saari Baatein Pyaar Se Check Karo
+        </button>
+      </div>
+
+    </div>
+  </section>
+    <section id="reasons" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>✨ Instant Mood Booster</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Aaj Smile Karne Ka Reason 🌸
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Jab bhi thoda low feel ho, yahan tap karo aur instant tareef aur pyaar pao:
+      </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto p-8 sm:p-12 rounded-3xl glass-panel shadow-2xl border border-rose-200/80 dark:border-purple-900/40 text-center relative overflow-hidden">
+      
+      <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-rose-400 to-amber-300 p-1 shadow-lg shadow-rose-300/30 flex items-center justify-center mb-6">
+        <div class="w-full h-full rounded-3xl bg-white dark:bg-darkCard flex items-center justify-center text-4xl">
+          🎁
+        </div>
+      </div>
+
+      <div id="complimentCard" class="min-h-[140px] flex items-center justify-center p-6 rounded-2xl bg-white/80 dark:bg-darkCard/80 border border-rose-100 dark:border-purple-900/30 mb-8 shadow-inner transition-all duration-300">
+        <p id="complimentText" class="text-lg sm:text-xl font-display font-bold text-gray-800 dark:text-white leading-relaxed italic">
+          "Neeche diye button pe tap karo aur ek pyari si tareef suno ✨"
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button 
+          onclick="generateCompliment()" 
+          class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white font-bold shadow-lg shadow-rose-500/25 active:scale-95 transition-all flex items-center justify-center gap-2"
+        >
+          <span>Ek Pyaari Tareef Suno ✨</span>
+        </button>
+
+        <button 
+          onclick="sendVirtualHug()" 
+          class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel text-rose-600 dark:text-rose-300 font-semibold border border-rose-200 dark:border-purple-900/60 hover:bg-rose-50 dark:hover:bg-darkCard active:scale-95 transition-all flex items-center justify-center gap-2"
+        >
+          <span>Virtual Jhappi Bhejo 🤗</span>
+        </button>
+      </div>
+
+      <div id="hugAlert" class="hidden mt-4 text-xs font-bold text-rose-500 dark:text-rose-400 animate-pulse">
+        🤗 Ek tight 10-second wali jhappi tumhare paas bhej di gayi hai! Tum kabhi akeli nahi ho! 💖
+      </div>
+
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('jokes')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Inside Jokes</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('games')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Agla Page: Riya Ka Game Zone 🎮</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 7: RIYA KA GAME ZONE (MINI-GAMES ARCADE) -->
+  <!-- ========================================================================= -->
+  <div id="view-games" class="view-page py-6">
+    <section id="games" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>🎮 Riya Ka Game Zone</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Riya Ki Masti & Games Lounge 🕹️
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Yeh funny games sirf tumhare chehre par muskurahat laane ke liye hain:
+      </p>
+    </div>
+
+    <!-- Game Tabs Selector -->
+    <div class="flex items-center justify-center gap-2 mb-10 max-w-md mx-auto p-1.5 rounded-2xl glass-panel border border-rose-200 dark:border-purple-900/50">
+      <button onclick="switchGameTab('quiz')" id="tabQuizBtn" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-rose-500 text-white shadow-sm">
+        1. Bestie Quiz 🧠
+      </button>
+      <button onclick="switchGameTab('catcher')" id="tabCatcherBtn" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-600 dark:text-gray-300 hover:text-rose-500">
+        2. Khushi Pakdo 💖
+      </button>
+      <button onclick="switchGameTab('oracle')" id="tabOracleBtn" class="flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-600 dark:text-gray-300 hover:text-rose-500">
+        3. Mood Ka Pahiya 🎡
+      </button>
+    </div>
+
+    <!-- GAME 1: BESTIE QUIZ -->
+    <div id="gameQuizContainer" class="max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl glass-panel shadow-2xl border border-white/80 dark:border-purple-900/40">
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-rose-100 dark:border-purple-900/30">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Quiz Challenge</span>
+          <h3 class="text-xl font-display font-bold text-gray-900 dark:text-white">Riya Aman ko kitna jaanti hai?</h3>
+        </div>
+        <div class="px-3.5 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-300 text-xs font-bold" id="quizProgress">
+          Sawaal 1 / 5
+        </div>
+      </div>
+
+      <div id="quizQuestionBox" class="space-y-6">
+        <h4 id="quizQuestionTitle" class="text-lg sm:text-xl font-display font-semibold text-gray-800 dark:text-gray-100">
+          Sawaal load ho raha hai...
+        </h4>
+
+        <div id="quizOptionsList" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
+        <div id="quizFeedback" class="hidden p-4 rounded-2xl text-sm font-medium transition-all"></div>
+      </div>
+
+      <div id="quizResultBox" class="hidden text-center py-6 space-y-6">
+        <div class="text-6xl animate-bounce" id="quizResultEmoji">🏆</div>
+        <h4 class="text-2xl sm:text-3xl font-display font-bold text-gray-900 dark:text-white" id="quizResultTitle">
+          Result aa raha hai...
+        </h4>
+        <p class="text-gray-600 dark:text-gray-300 text-base max-w-md mx-auto" id="quizResultDesc">Description</p>
+        <div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-300 text-sm font-bold inline-block" id="quizScoreDisplay">
+          Score: 5/5
+        </div>
+        <div>
+          <button onclick="restartQuiz()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold text-sm shadow-lg shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all">
+            Wapas Khelo 🔄
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME 2: CATCH JOY -->
+    <div id="gameCatcherContainer" class="hidden max-w-3xl mx-auto p-6 sm:p-10 rounded-3xl glass-panel shadow-2xl border border-white/80 dark:border-purple-900/40 text-center">
+      <div class="flex items-center justify-between mb-4 pb-2 border-b border-rose-100 dark:border-purple-900/30">
+        <div class="text-left">
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Arcade Mini Game</span>
+          <h3 class="text-lg sm:text-xl font-display font-bold text-gray-900 dark:text-white">Riya Ki Khushiyan Pakdo 💖</h3>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-300 text-xs font-bold">
+            Score: <span id="catcherScore">0</span>
+          </div>
+          <div class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-300 text-xs font-bold">
+            Jaan: <span id="catcherLives">❤️❤️❤️</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">
+        Mouse ya ungli se Basket 🧺 ko move karo. Hearts (💖), Pizza (🍕), aur Coffee (☕) pakdo. Stress ke baadal (🌩️) se bacho!
+      </p>
+
+      <div class="relative w-full aspect-[16/10] max-h-[380px] bg-gradient-to-b from-rose-50 to-pink-100 dark:from-darkBg dark:to-[#1a122e] rounded-2xl overflow-hidden border border-rose-200 dark:border-purple-900/40 shadow-inner">
+        <canvas id="catcherCanvas" class="w-full h-full block"></canvas>
+        
+        <div id="catcherOverlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-white text-center">
+          <div class="text-5xl mb-2">🧺</div>
+          <h4 class="text-2xl font-display font-bold mb-2" id="catcherOverlayTitle">Khushiyan Pakadne Ko Ready?</h4>
+          <p class="text-xs sm:text-sm text-gray-200 max-w-sm mb-6" id="catcherOverlayText">
+            Dher saare points banao aur Aman ki special cheer unlock karo!
+          </p>
+          <button onclick="startCatcherGame()" class="px-8 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold shadow-lg shadow-rose-500/40 hover:scale-105 active:scale-95 transition-all">
+            Khelna Shuru Karo 🚀
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME 3: THE RIYA ORACLE WHEEL -->
+    <div id="gameOracleContainer" class="hidden max-w-3xl mx-auto p-8 sm:p-12 rounded-3xl glass-panel shadow-2xl border border-white/80 dark:border-purple-900/40 text-center">
+      <div class="text-center max-w-md mx-auto mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-rose-500">Kismat & Mood Predictor</span>
+        <h3 class="text-2xl font-display font-bold text-gray-900 dark:text-white mt-1">Aaj Ka Riya Mood Pahiya 🎡</h3>
+        <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-300 mt-1">
+          Pahiya ghumaao aur dekho aaj Aman ki taraf se tumhare liye kya advice aayi hai:
+        </p>
+      </div>
+
+      <div class="relative w-64 h-64 sm:w-80 sm:h-80 mx-auto mb-8">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-30 text-rose-600 text-3xl filter drop-shadow-md">
+          ▼
+        </div>
+
+        <div id="oracleWheel" class="w-full h-full rounded-full border-8 border-white dark:border-purple-900 shadow-2xl overflow-hidden relative transition-transform duration-[4000ms] cubic-bezier(0.15, 0.9, 0.2, 1)" style="transform: rotate(0deg);">
+          <svg viewBox="0 0 100 100" class="w-full h-full transform -rotate-90">
+            <path d="M50 50 L100 50 A50 50 0 0 1 75 93.3 Z" fill="#fb7185" />
+            <path d="M50 50 L75 93.3 A50 50 0 0 1 25 93.3 Z" fill="#c084fc" />
+            <path d="M50 50 L25 93.3 A50 50 0 0 1 0 50 Z" fill="#f43f5e" />
+            <path d="M50 50 L0 50 A50 50 0 0 1 25 6.7 Z" fill="#e879f9" />
+            <path d="M50 50 L25 6.7 A50 50 0 0 1 75 6.7 Z" fill="#fda4af" />
+            <path d="M50 50 L75 6.7 A50 50 0 0 1 100 50 Z" fill="#a855f7" />
+          </svg>
+
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <span class="absolute top-6 font-bold text-white text-lg">☕</span>
+            <span class="absolute right-6 font-bold text-white text-lg">👑</span>
+            <span class="absolute bottom-6 font-bold text-white text-lg">🍕</span>
+            <span class="absolute left-6 font-bold text-white text-lg">✨</span>
+          </div>
+
+          <div class="absolute inset-0 m-auto w-16 h-16 rounded-full bg-white dark:bg-darkCard shadow-lg flex items-center justify-center font-bold text-xl text-rose-500 border-2 border-rose-200">
+            💖
+          </div>
+        </div>
+      </div>
+
+      <div id="oracleResultBox" class="hidden p-6 rounded-2xl bg-rose-50 dark:bg-darkCard border border-rose-200 dark:border-purple-900/60 max-w-lg mx-auto mb-6 animate-pulse-soft">
+        <h4 class="text-xl font-display font-bold text-rose-600 dark:text-rose-400 mb-1" id="oracleTitle">
+          Tumhara Result Aaya!
+        </h4>
+        <p class="text-sm text-gray-700 dark:text-gray-200" id="oracleMessage">
+          Pahiya ghumaao!
+        </p>
+      </div>
+
+      <button 
+        id="spinBtn" 
+        onclick="spinOracleWheel()" 
+        class="px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all text-base"
+      >
+        <span>Pahiya Ghumaao 🎡✨</span>
+      </button>
+    </div>
+
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('love')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Pyaari Baatein</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-rose-100 dark:bg-rose-950/60 hover:bg-rose-200 text-rose-700 dark:text-rose-300 text-xs font-semibold active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer">
+        <span>🏠 Home Hub</span>
+      </button>
+        
+      <button onclick="showView('letter')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>Final Chapter: Aman Ka Secret Khat 💌</span>
+        <span>➡️</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 8: SECRET LETTER (AMAN KA DIL SE KHAT & FINALE) -->
+  <!-- ========================================================================= -->
+  <div id="view-letter" class="view-page py-6">
+    <section id="letter" class="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto relative z-10">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 text-xs font-semibold mb-3 tracking-wider uppercase">
+        <span>🔒 Dil Se Dil Tak</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4">
+        Aman Ka Secret Khat 💌
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
+        Wax seal stamp pe tap karo aur padho wo baatein jo mere dil mein hamesha se hain:
+      </p>
+    </div>
+
+    <div class="py-12 flex flex-col items-center justify-center">
+      
+      <!-- 3D Interactive CSS Envelope -->
+      <div id="secretEnvelope" class="envelope-wrapper cursor-pointer group" onclick="toggleEnvelope()">
+        <div class="envelope-back"></div>
+        
+        <!-- The Peek Letter inside -->
+        <div class="envelope-letter text-gray-800 flex flex-col justify-between">
+          <div class="flex justify-between items-center border-b border-rose-200/80 pb-1.5">
+            <span class="font-display font-bold text-rose-600 text-sm">Meri Pyaari Riya 🌸</span>
+            <span class="text-[10px] text-gray-500 font-serif">Hamesha aur Har Pal</span>
+          </div>
+
+          <div class="font-handwriting text-xs sm:text-sm text-gray-700 leading-snug line-clamp-4">
+            <p>Dear Riya, agar kuch saal pehle koi mujhse kehta ki ek insaan meri life mein itni saari khushiyan aur hasi laa sakta hai, toh main kabhi vishwas nahi karta jab tak main tumse nahi mila tha...</p>
+          </div>
+
+          <div class="text-[10px] font-bold text-rose-500 text-right">
+            Tap to unfold completely ✨
+          </div>
+        </div>
+
+        <div class="envelope-front"></div>
+        <div class="envelope-top flex items-center justify-center">
+          <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-rose-700 via-red-600 to-rose-500 border-2 border-rose-300 shadow-xl flex items-center justify-center text-white text-xl font-display font-bold -mt-5 cursor-pointer wax-seal group-hover:scale-110 transition-transform">
+            <span>💌</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 sm:mt-24 text-center">
+        <button 
+          id="envelopeBtn"
+          onclick="toggleEnvelope()" 
+          class="px-9 py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-base shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 mx-auto cursor-pointer"
+        >
+          <span id="envelopeBtnText">Khat Kholo & Pura Padho 💌</span>
+        </button>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-3 italic">
+          (Wax seal ya button pe click karo—Khwab song ke saath pura khat khulega! ✨)
+        </p>
+      </div>
+
+    </div>
+  </section>
+    
+    <!-- Bottom View Navigation Bar -->
+    <div class="max-w-4xl mx-auto mt-16 pt-8 border-t border-rose-200/80 dark:border-purple-900/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+    
+      <button onclick="showView('games')" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl glass-panel hover:bg-rose-50 text-gray-700 dark:text-gray-200 text-xs sm:text-sm font-bold border border-rose-200 dark:border-purple-900/60 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>⬅️ Games Zone</span>
+      </button>
+        
+      <button onclick="showView('home')" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-purple-600 to-rose-500 hover:from-purple-700 hover:to-rose-600 text-white text-xs sm:text-sm font-bold shadow-xl shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer">
+        <span>🌸 Wapas Home Jao</span>
+        <span>🔄</span>
+      </button>
+        
+    </div>
+
+  </div>
+
+<!-- 10.5 LUXURY PARCHMENT READING MODAL (FULL LETTER EXPERIENCE) -->
+  <!-- ========================================================================= -->
+  <div id="parchmentOverlay" class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto transition-all duration-500">
+    
+    <div id="parchmentCard" class="parchment-modal relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#fffef7] text-gray-800 p-6 sm:p-10 shadow-2xl border-4 border-[#fbcfe8] my-auto">
+      
+      <!-- Golden / Rose Decorative Ornaments -->
+      <div class="absolute top-4 left-4 text-rose-300 text-xl select-none">🌸</div>
+      <div class="absolute top-4 right-4 text-rose-300 text-xl select-none">🌸</div>
+      <div class="absolute bottom-4 left-4 text-rose-300 text-xl select-none">✨</div>
+      <div class="absolute bottom-4 right-4 text-rose-300 text-xl select-none">✨</div>
+
+      <!-- Close X Button -->
+      <button 
+        onclick="toggleEnvelope()" 
+        class="absolute top-4 right-4 w-9 h-9 rounded-full bg-rose-100 hover:bg-rose-200 text-rose-600 font-bold flex items-center justify-center transition-all z-20"
+        title="Khat Band Karo"
+      >
+        ✕
+      </button>
+
+      <!-- Music Now Playing Banner inside letter -->
+      <div class="mb-6 p-3 rounded-2xl bg-rose-50/90 border border-rose-200/80 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 text-xs font-semibold text-rose-700">
+          <span class="animate-spin-slow">💿</span>
+          <span>Now Playing: <b>Khwab</b> (0:38 Hook) 🎶</span>
+        </div>
+        <button onclick="toggleYouTubeMusic()" class="px-2.5 py-1 rounded-lg bg-rose-500 text-white text-[11px] font-bold shadow-sm">
+          Song Play/Pause
+        </button>
+      </div>
+
+      <!-- Letter Header -->
+      <div class="text-center mb-6 pb-4 border-b-2 border-dashed border-rose-200">
+        <span class="text-xs uppercase font-bold tracking-widest text-rose-500">Official Special Letter From Aman</span>
+        <h3 class="text-3xl sm:text-4xl font-display font-bold text-gray-900 mt-1">
+          Meri Pyaari Riya 🌸
+        </h3>
+        <p class="text-xs text-gray-500 font-serif mt-1">
+          Delivered With 100% Love • Forever & Always 💌
+        </p>
+      </div>
+
+      <!-- Letter Body Text -->
+      <div class="font-handwriting text-lg sm:text-2xl text-gray-800 leading-relaxed space-y-5 px-1 sm:px-4">
+        <p>
+          Dear Riya,
+        </p>
+        <p>
+          Agar kuch saal pehle koi mujhse kehta ki ek insaan meri life mein itni saari khushiyan, sukoon aur hasi laa sakta hai, toh main kabhi vishwas nahi karta jab tak main tumse nahi mila tha.
+        </p>
+        <p>
+          Mujhe pata hai tum apni life aur family mein bohot busy rehti ho, aur kabhi kabhi thoda bura lagta hai jab tumhare paas sab ke liye time hota hai par mere liye hamesha 'I am busy' hota hai... Par sach bataun? Tumhara thoda sa waqt aur tumhari thodi si priority hi mere poore din ka sabse bada sukoon hoti hai.
+        </p>
+
+        <!-- Golden Highlight Box -->
+        <div class="p-5 rounded-2xl bg-gradient-to-r from-rose-100/80 to-pink-100/80 border-2 border-rose-300 shadow-sm text-center">
+          <p class="font-bold text-rose-700 text-xl sm:text-3xl font-display leading-snug">
+            "Main hamesha tumhare saath hoon... sirf isliye nahi ki tum meri sabse achhi dost ho, balki isliye kyunki tum meri zindagi mein usse bhi bohot zyada maayne rakhti ho, as a special person or as a girlfriend." 💖
+          </p>
+        </div>
+
+        <p>
+          Zindagi mein chahe jo bhi mod aaye—chahe tumhari busy schedules hon, badi kamyabi ho, ya koi mushkil waqt—main hamesha tumhare saath khada rahunga, bina kisi 'Sorry' ki zaroorat ke! Bas thoda sa waqt mere liye bacha ke rakhna.
+        </p>
+        <p class="text-right pt-4 font-display">
+          Dil se sirf tumhara,<br/>
+          <span class="text-3xl sm:text-4xl font-bold text-rose-600 font-handwriting">Aman 💗</span>
+        </p>
+      </div>
+
+      <!-- Interactive Modal Footer Buttons -->
+      <div class="mt-8 pt-6 border-t-2 border-dashed border-rose-200 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+        <button 
+          onclick="triggerHugeConfetti(); playChime(880, 0.3);" 
+          class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-lg shadow-rose-500/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-1.5"
+        >
+          <span>💖 Send Love Back to Aman</span>
+        </button>
+
+        <button 
+          onclick="toggleEnvelope()" 
+          class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-rose-100 text-rose-700 hover:bg-rose-200 font-bold text-xs transition-all flex items-center justify-center gap-1.5"
+        >
+          <span>✉️ Khat Wapas Band Karo</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 11. FLOATING MUSIC PLAYER WIDGET -->
+  <!-- ========================================================================= -->
+  <div id="floatingMusicWidget" class="fixed bottom-6 right-4 sm:right-6 z-50 transition-all duration-500 max-w-sm w-[92%] sm:w-80">
+    <div class="p-4 rounded-3xl glass-panel shadow-2xl border border-rose-300/80 dark:border-purple-800/60 relative overflow-hidden backdrop-blur-xl">
+      
+      <div class="flex items-center justify-between mb-3 pb-2 border-b border-rose-100 dark:border-purple-900/40">
+        <div class="flex items-center gap-2">
+          <div id="recordDisc" class="w-7 h-7 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center text-xs text-white shadow-sm">
+            💿
+          </div>
+          <div>
+            <h5 class="text-xs font-bold text-gray-900 dark:text-white leading-tight">Khwab 🎶</h5>
+            <p class="text-[10px] text-rose-500 dark:text-rose-400 font-medium">Iqlipse Nova • Aman's Song For Riya 💖</p>
+          </div>
+        </div>
+
+        <button onclick="toggleWidgetCollapse()" class="text-gray-400 hover:text-rose-500 text-xs p-1">
+          <span id="widgetToggleIcon">▼</span>
+        </button>
+      </div>
+
+      <div id="widgetBody" class="space-y-3">
+        
+        <div class="flex items-center justify-between">
+          <button 
+            id="playPauseBtn" 
+            onclick="toggleYouTubeMusic()" 
+            class="px-4 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 text-white text-xs font-bold shadow-md shadow-rose-500/30 flex items-center gap-1.5 hover:scale-105 active:scale-95 transition-all"
+          >
+            <span id="playPauseIcon">▶️</span>
+            <span id="playPauseText">Play Song</span>
+          </button>
+
+          <div class="flex items-end gap-1 h-5 px-2">
+            <span id="eq1" class="w-1 bg-rose-400 dark:bg-rose-500 rounded-full h-1 transition-all"></span>
+            <span id="eq2" class="w-1 bg-pink-500 dark:bg-pink-400 rounded-full h-1 transition-all"></span>
+            <span id="eq3" class="w-1 bg-purple-500 dark:bg-purple-400 rounded-full h-1 transition-all"></span>
+            <span id="eq4" class="w-1 bg-rose-500 dark:bg-rose-400 rounded-full h-1 transition-all"></span>
+          </div>
+
+          <span class="text-[10px] text-gray-500 dark:text-gray-400 font-mono" id="timeStatus">0:00 / --:--</span>
+        </div>
+
+        <div class="pt-2 border-t border-rose-100 dark:border-purple-900/30">
+          <p class="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1.5">
+            ✨ "Khwab" Ke Best Moments:
+          </p>
+          <div class="grid grid-cols-3 gap-1.5 text-center">
+            <button onclick="jumpToSongPart(0, 'Acoustic Intro 🌸')" class="p-1.5 rounded-lg bg-rose-50 dark:bg-darkCard hover:bg-rose-100 text-[10px] font-medium text-rose-600 dark:text-rose-300 border border-rose-200 dark:border-purple-900/40 transition-colors">
+              🌸 Intro (0:00)
+            </button>
+            <button onclick="jumpToSongPart(38, 'Iconic Khwab Hook 💖')" class="p-1.5 rounded-lg bg-rose-100/80 dark:bg-purple-950/60 hover:bg-rose-200 text-[10px] font-bold text-rose-700 dark:text-rose-300 border border-rose-300 dark:border-purple-800 transition-colors">
+              💖 Hook (0:38)
+            </button>
+            <button onclick="jumpToSongPart(102, 'Soulful Verse ✨')" class="p-1.5 rounded-lg bg-rose-50 dark:bg-darkCard hover:bg-rose-100 text-[10px] font-medium text-rose-600 dark:text-rose-300 border border-rose-200 dark:border-purple-900/40 transition-colors">
+              ✨ Verse (1:42)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- 12. FOOTER -->
+  <!-- ========================================================================= -->
+  <footer class="py-12 px-4 border-t border-rose-100 dark:border-purple-900/40 relative z-10 glass-nav text-center mb-16 sm:mb-0">
+    <div class="max-w-4xl mx-auto space-y-4">
+      
+      <div class="flex items-center justify-center gap-2 text-2xl animate-pulse-soft">
+        <span>🌸</span>
+        <span>💖</span>
+        <span>✨</span>
+        <span>💖</span>
+        <span>🌸</span>
+      </div>
+
+      <p class="text-base sm:text-lg font-display font-bold text-gray-900 dark:text-white">
+        Bade pyaar se <span class="text-rose-500">Aman</span> ne banaya, apni <span class="text-pink-500">Riya</span> ke liye 💗
+      </p>
+
+      <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+        Forever Besties • Soulmate Vibe • Dil Se Banaya Gaya Digital World
+      </p>
+
+      <div class="pt-4 flex items-center justify-center gap-4 text-xs text-gray-400">
+        <a href="#hero" class="hover:text-rose-500 transition-colors">Upar Jao ↑</a>
+        <span>•</span>
+        <button onclick="triggerHugeConfetti()" class="hover:text-rose-500 transition-colors">Wapas Celebrate Karo 🎉</button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================================= -->
+  <!-- 13. JAVASCRIPT LOGIC -->
+  <!-- ========================================================================= -->
+  <script>
+
+    /* ==================== 0. SINGLE PAGE STORYBOOK / CHAPTER CONTROLLER ==================== */
+    let currentPage = 1;
+    const totalPages = 8;
+    const chapterTitles = [
+      "Chapter 1: Welcome & Quick Guide 🌸",
+      "Chapter 2: Tum Kyun Special Ho ✨",
+      "Chapter 3: Hamari Yaadgaar Kahani ⏳",
+      "Chapter 4: Busy Queen & Mood Meter 👑",
+      "Chapter 5: Secret Inside Jokes 😂",
+      "Chapter 6: Things I Love & Tareef 💖",
+      "Chapter 7: Riya Ka Game Zone 🎮",
+      "Chapter 8: Aman Ka Secret Khat 💌"
+    ];
+
+    function goToPage(page) {
+      if (page < 1 || page > totalPages) return;
+      
+      document.querySelectorAll('.page-section').forEach(p => {
+        p.classList.remove('active-page');
+      });
+
+      currentPage = page;
+      const targetPage = document.getElementById(`page-${page}`);
+      if (targetPage) {
+        targetPage.classList.add('active-page');
+      }
+
+      // Update progress bar & chapter title
+      const titleEl = document.getElementById('chapterTitleText');
+      const barEl = document.getElementById('chapterProgressBar');
+      const countEl = document.getElementById('chapterCountText');
+      
+      if (titleEl) titleEl.textContent = chapterTitles[page - 1];
+      if (countEl) countEl.textContent = `Page ${page} of ${totalPages}`;
+      if (barEl) barEl.style.width = `${(page / totalPages) * 100}%`;
+
+      // Update step dots
+      for (let i = 1; i <= totalPages; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (dot) {
+          if (i === page) {
+            dot.className = 'w-7 h-7 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs flex items-center justify-center shadow-md scale-110 transition-all cursor-pointer';
+          } else if (i < page) {
+            dot.className = 'w-6 h-6 rounded-full bg-rose-200 dark:bg-rose-950 text-rose-600 dark:text-rose-300 font-bold text-[10px] flex items-center justify-center cursor-pointer hover:bg-rose-300 transition-all';
+          } else {
+            dot.className = 'w-6 h-6 rounded-full bg-gray-200 dark:bg-darkCard text-gray-400 font-bold text-[10px] flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-all';
+          }
+        }
+      }
+
+      playChime(523.25 + (page * 35), 0.15);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // If opening games page (page 7), init catcher canvas
+      if (page === 7) {
+        setTimeout(initCatcherCanvas, 100);
+      }
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        goToPage(currentPage + 1);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        goToPage(currentPage - 1);
+      }
+    }
+
+    /* ==================== 1. YOUTUBE IFRAME API CONTROLLER ==================== */
+    let ytPlayer = null;
+    let isYtPlaying = false;
+    let timeTrackerInterval = null;
+
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('youtubePlayer', {
+        height: '200',
+        width: '200',
+        videoId: 'K1Uc52jzFIQ',
+        playerVars: {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          modestbranding: 1,
+          rel: 0,
+          playsinline: 1
+        },
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      console.log("YouTube Player is ready");
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        setMusicPlayingState(true);
+      } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+        setMusicPlayingState(false);
+      }
+    }
+
+    function setMusicPlayingState(playing) {
+      isYtPlaying = playing;
+      const navIcon = document.getElementById('navMusicIcon');
+      const navLabel = document.getElementById('navMusicLabel');
+      const navEq = document.getElementById('navEqualizer');
+      const playIcon = document.getElementById('playPauseIcon');
+      const playText = document.getElementById('playPauseText');
+      const disc = document.getElementById('recordDisc');
+
+      const eq1 = document.getElementById('eq1');
+      const eq2 = document.getElementById('eq2');
+      const eq3 = document.getElementById('eq3');
+      const eq4 = document.getElementById('eq4');
+
+      if (playing) {
+        navIcon.textContent = '⏸️';
+        navLabel.textContent = 'Song: Pause';
+        navEq.classList.remove('hidden');
+        playIcon.textContent = '⏸️';
+        playText.textContent = 'Pause';
+        disc.classList.add('animate-spin-record');
+
+        [eq1, eq2, eq3, eq4].forEach((b, i) => {
+          b.className = 'w-1 bg-rose-500 rounded-full equalizer-bar';
+          b.style.animationDuration = `${0.4 + (i * 0.2)}s`;
+        });
+
+        startTimeTracker();
+      } else {
+        navIcon.textContent = '🎵';
+        navLabel.textContent = 'Song: Play';
+        navEq.classList.add('hidden');
+        playIcon.textContent = '▶️';
+        playText.textContent = 'Play Song';
+        disc.classList.remove('animate-spin-record');
+
+        [eq1, eq2, eq3, eq4].forEach(b => {
+          b.className = 'w-1 bg-rose-300 dark:bg-purple-800 rounded-full h-1';
+        });
+
+        clearInterval(timeTrackerInterval);
+      }
+    }
+
+    function toggleYouTubeMusic() {
+      if (!ytPlayer || typeof ytPlayer.playVideo !== 'function') {
+        playChime(659.25, 0.2);
+        return;
+      }
+
+      if (isYtPlaying) {
+        ytPlayer.pauseVideo();
+      } else {
+        ytPlayer.playVideo();
+      }
+    }
+
+    function jumpToSongPart(seconds, label) {
+      if (ytPlayer && typeof ytPlayer.seekTo === 'function') {
+        ytPlayer.seekTo(seconds, true);
+        ytPlayer.playVideo();
+        playChime(880, 0.2);
+        triggerHugeConfetti();
+      }
+    }
+
+    function startTimeTracker() {
+      clearInterval(timeTrackerInterval);
+      timeTrackerInterval = setInterval(() => {
+        if (ytPlayer && typeof ytPlayer.getCurrentTime === 'function') {
+          const curr = Math.floor(ytPlayer.getCurrentTime() || 0);
+          const dur = Math.floor(ytPlayer.getDuration() || 0);
+          const formatTime = (s) => `${Math.floor(s / 60)}:${(s % 60).toString().padStart(2, '0')}`;
+          document.getElementById('timeStatus').textContent = `${formatTime(curr)} / ${formatTime(dur)}`;
+        }
+      }, 1000);
+    }
+
+    function toggleWidgetCollapse() {
+      const body = document.getElementById('widgetBody');
+      const icon = document.getElementById('widgetToggleIcon');
+      body.classList.toggle('hidden');
+      icon.textContent = body.classList.contains('hidden') ? '▲' : '▼';
+    }
+
+
+    /* ==================== 2. BUSY QUEEN & CONTRACT LOGIC ==================== */
+    const sorryExcuses = [
+      "Excuse #1: 'Aman mummy ne kaam bol diya tha sach mein!' 🧹",
+      "Excuse #2: 'Phone silent pe tha aur main 3 ghante so gayi!' 😴",
+      "Excuse #3: 'Network issue tha bilkul towers nahi aa rahe the!' 📶",
+      "Excuse #4: 'Reels dekhte dekhte time ka pata hi nahi chala!' 📱",
+      "Excuse #5: 'Main busy thi par ab free hoon, ab bol kya bol raha tha?' 👑",
+      "Excuse #6: 'Pakka kal se pehle tujhe call karungi promise!' 🤞",
+      "Excuse #7: 'Aman maine mann mein reply de diya tha, mujhe laga send ho gaya!' 🧠💬",
+      "Excuse #8: 'Arey bas 2 minute mein call back karti hoon... *calls after 3 days*' ⏳",
+      "Excuse #9: 'Instagram pe reels share kar sakti hoon par WhatsApp pe text nahi kar sakti!' 💅",
+      "Excuse #10: 'Galti se phone DND pe chala gaya tha aur phone bag mein tha!' 🎒",
+      "Excuse #11: 'Arey sun na bohot bada kissa hua pehle meri sun!' 😱🗣️"
+    ];
+    let excuseIdx = 0;
+
+    function triggerSorryExcuse() {
+      const box = document.getElementById('sorryExcuseText');
+      box.textContent = sorryExcuses[excuseIdx % sorryExcuses.length];
+      box.classList.remove('hidden');
+      excuseIdx++;
+      playChime(659.25, 0.2);
+    }
+
+    let isContractSigned = false;
+    function signPriorityContract() {
+      if (isContractSigned) return;
+      isContractSigned = true;
+      
+      const btn = document.getElementById('signContractBtn');
+      const badge = document.getElementById('contractSignedBadge');
+      
+      btn.innerHTML = '<span>Signed by Riya ✍️ (No Backing Out!)</span>';
+      btn.className = 'w-full py-3.5 rounded-2xl bg-emerald-600 text-white font-bold text-xs shadow-lg shadow-emerald-500/30 cursor-default';
+      badge.classList.remove('hidden');
+
+      playChime(880, 0.3);
+      triggerHugeConfetti();
+    }
+
+    function manaoAman(action) {
+      const angry = document.getElementById('charAngry');
+      const crying = document.getElementById('charCrying');
+      const puppy = document.getElementById('charPuppy');
+      const happy = document.getElementById('charHappy');
+      const text = document.getElementById('dramaDialogue');
+
+      [angry, crying, puppy, happy].forEach(el => {
+        if (el) el.classList.add('hidden');
+      });
+
+      if (action === 'chocolate') {
+        if (puppy) puppy.classList.remove('hidden');
+        text.innerHTML = '"Riya: Sorry na Aman, chocolate khao 🍫... Aman: Thoda sa gussa kam hua hai 🥺"';
+        playChime(659.25, 0.2);
+      } else if (action === 'pizza') {
+        if (crying) crying.classList.remove('hidden');
+        text.innerHTML = '"Aman: Pizza se pet toh bhar jayega par dil ka kya? Pehle time kab dogi? 😭🍕"';
+        playChime(523.25, 0.2);
+      } else if (action === 'priority') {
+        if (happy) happy.classList.remove('hidden');
+        text.innerHTML = '"Aman: Yayyy! 🥰🎉 15 min call aur #1 priority mil gayi! Saara gussa gayab! 💖"';
+        playChime(880, 0.4);
+        triggerHugeConfetti();
+      }
+    }
+
+
+    /* ==================== 3. PASSWORD GATE LOGIC ==================== */
+    const CORRECT_PASSWORD = "252006";
+
+    function verifyPassword() {
+      const input = document.getElementById('passwordInput');
+      const errorMsg = document.getElementById('gateError');
+      const gate = document.getElementById('passwordGate');
+
+      if (input.value.trim() === CORRECT_PASSWORD) {
+        playChime(587.33, 0.2);
+        setTimeout(() => playChime(880, 0.4), 150);
+        triggerHugeConfetti();
+        
+        // Auto-play the iconic Hook line (38s: "Jo main raat hoon, toh tu khwab hai...") of Khwab
+        if (ytPlayer) {
+          try {
+            if (typeof ytPlayer.seekTo === 'function') {
+              ytPlayer.seekTo(38, true);
+            }
+            if (typeof ytPlayer.playVideo === 'function') {
+              ytPlayer.playVideo();
+            }
+          } catch(e) {}
+        }
+        
+        gate.style.opacity = '0';
+        setTimeout(() => {
+          gate.style.display = 'none';
+          document.body.classList.remove('overflow-hidden');
+        }, 700);
+      } else {
+        input.classList.add('border-red-500', 'animate-shake');
+        errorMsg.classList.remove('hidden');
+        playBeep(220, 0.3);
+        setTimeout(() => {
+          input.classList.remove('border-red-500', 'animate-shake');
+        }, 600);
+      }
+    }
+
+    function toggleHint() {
+      const hint = document.getElementById('hintText');
+      hint.classList.toggle('hidden');
+    }
+
+
+    /* ==================== 4. THEME TOGGLE (DARK / LIGHT) ==================== */
+    let isDarkMode = false;
+
+    function toggleDarkMode() {
+      isDarkMode = !isDarkMode;
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+
+      if (isDarkMode) {
+        html.classList.add('dark');
+        themeIcon.textContent = '☀️';
+      } else {
+        html.classList.remove('dark');
+        themeIcon.textContent = '🌙';
+      }
+      playChime(659.25, 0.15);
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    }
+
+
+    /* ==================== 5. SOUND EFFECTS SYNTHESIZER ==================== */
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.5, gainVal = 0.08) {
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function playChime(freq, duration = 0.4) {
+      playTone(freq, 'triangle', duration, 0.15);
+    }
+
+    function playBeep(freq, duration = 0.3) {
+      playTone(freq, 'sawtooth', duration, 0.05);
+    }
+
+
+    /* ==================== 6. AMBIENT PARTICLES ==================== */
+    const canvas = document.getElementById('ambientCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 8 + 6;
+        this.speedX = Math.random() * 0.8 - 0.4;
+        this.speedY = Math.random() * 0.7 + 0.3;
+        this.opacity = Math.random() * 0.4 + 0.2;
+        this.symbol = ['🌸', '✨', '💖', '⭐', '👑'][Math.floor(Math.random() * 5)];
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.y > canvas.height + 20) {
+          this.y = -20;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+      draw() {
+        ctx.globalAlpha = this.opacity;
+        ctx.font = `${this.size}px serif`;
+        ctx.fillText(this.symbol, this.x, this.y);
+      }
+    }
+
+    for (let i = 0; i < 28; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+
+    /* ==================== 7. CUSTOM HEART CURSOR TRAIL ==================== */
+    let lastSparkleTime = 0;
+    window.addEventListener('mousemove', (e) => {
+      const now = Date.now();
+      if (now - lastSparkleTime > 120) {
+        lastSparkleTime = now;
+        createSparkle(e.clientX, e.clientY);
+      }
+    });
+
+    function createSparkle(x, y) {
+      const sparkle = document.createElement('span');
+      sparkle.className = 'heart-sparkle';
+      const symbols = ['💖', '✨', '🌸', '🤍', '⭐'];
+      sparkle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      sparkle.style.left = `${x}px`;
+      sparkle.style.top = `${y}px`;
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1200);
+    }
+
+
+    /* ==================== 8. CARD FLIP & HEART POPPING ==================== */
+    function toggleCardFlip(cardEl) {
+      cardEl.classList.toggle('card-flipped');
+      playChime(523.25, 0.1);
+    }
+
+    function popHeart(btn) {
+      const countEl = btn.querySelector('.like-count');
+      let count = parseInt(countEl.textContent);
+      countEl.textContent = count + 1;
+      playChime(659.25, 0.2);
+      
+      confetti({
+        particleCount: 15,
+        spread: 40,
+        origin: { 
+          x: btn.getBoundingClientRect().left / window.innerWidth,
+          y: btn.getBoundingClientRect().top / window.innerHeight
+        },
+        colors: ['#fb7185', '#ec4899', '#f43f5e']
+      });
+    }
+
+    function toggleLoveCheck(item) {
+      const heartBox = item.querySelector('.heart-box');
+      const tag = item.querySelector('.check-tag');
+      
+      if (heartBox.textContent === '🤍') {
+        heartBox.textContent = '💖';
+        heartBox.classList.add('scale-125');
+        tag.classList.remove('opacity-0');
+        playChime(783.99, 0.15);
+      } else {
+        heartBox.textContent = '🤍';
+        heartBox.classList.remove('scale-125');
+        tag.classList.add('opacity-0');
+      }
+    }
+
+    function checkAllLove() {
+      document.querySelectorAll('#loveList .love-item').forEach((item, i) => {
+        setTimeout(() => {
+          const heartBox = item.querySelector('.heart-box');
+          const tag = item.querySelector('.check-tag');
+          heartBox.textContent = '💖';
+          heartBox.classList.add('scale-125');
+          tag.classList.remove('opacity-0');
+          playChime(523.25 + (i * 60), 0.15);
+        }, i * 150);
+      });
+      setTimeout(triggerHugeConfetti, 1000);
+    }
+
+
+    /* ==================== 9. COMPLIMENT GENERATOR ==================== */
+    const compliments = [
+      "Riya, chahe tum kitni bhi busy raho, meri favorite insaan hamesha tum hi rahogi! 💖",
+      "Tum 10% Angel ho, 30% Prime Minister ki tarah busy, aur 60% Pure Pyar! 👑",
+      "Next time 'Sorry' bolne se pehle Aman ko 15 minute ka uninterrupted call dena compulsory hai! 📞",
+      "Tum apne career aur goals mein aag lagaogi, Aman ko tumpe 100% bharosa hai! 🎯",
+      "Agar tum meri life mein nahi hoti toh meri zindagi 1000x boring hoti! 🌸",
+      "Reminder: Tum jitna sochti ho, usse 100 guna zyada smart, strong aur sundar ho! 👑",
+      "Aman ki taraf se tumhein 'Duniya ki Sabse Pyaari Busy Queen' ka trophy milta hai! 🏆",
+      "Aaj tumhein ek badi iced coffee, mast playlist aur zero stress milna chahiye! ☕✨",
+      "Riya ki reel sharing speed 5G se bhi tez hai aur WhatsApp reply speed 2G se bhi slow! 😂📱",
+      "Duniya mein 2 tarah ke log hote hain: Ek jo time pe reply dete hain, aur doosri Riya! 💅",
+      "Aman ko manane ke liye tumhari ek pyari si smile hi kafi hoti hai! 💖",
+      "Chahe kitna bhi gussa ho jaun, tumhara 'Sorry na Aman 🥺' sunkar dil pighal hi jata hai!"
+    ];
+
+    function generateCompliment() {
+      const textEl = document.getElementById('complimentText');
+      const randomIndex = Math.floor(Math.random() * compliments.length);
+      
+      textEl.style.opacity = '0';
+      textEl.style.transform = 'scale(0.95)';
+      
+      playChime(880, 0.2);
+      
+      setTimeout(() => {
+        textEl.textContent = `"${compliments[randomIndex]}"`;
+        textEl.style.opacity = '1';
+        textEl.style.transform = 'scale(1)';
+      }, 200);
+    }
+
+    function sendVirtualHug() {
+      const alert = document.getElementById('hugAlert');
+      alert.classList.remove('hidden');
+      playChime(523.25, 0.4);
+      triggerHugeConfetti();
+      setTimeout(() => alert.classList.add('hidden'), 5000);
+    }
+
+
+    /* ==================== 10. MINI-GAMES ARCADE LOGIC ==================== */
+    function switchGameTab(tab) {
+      document.getElementById('gameQuizContainer').classList.add('hidden');
+      document.getElementById('gameCatcherContainer').classList.add('hidden');
+      document.getElementById('gameOracleContainer').classList.add('hidden');
+
+      document.getElementById('tabQuizBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-600 dark:text-gray-300 hover:text-rose-500';
+      document.getElementById('tabCatcherBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-600 dark:text-gray-300 hover:text-rose-500';
+      document.getElementById('tabOracleBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all text-gray-600 dark:text-gray-300 hover:text-rose-500';
+
+      if (tab === 'quiz') {
+        document.getElementById('gameQuizContainer').classList.remove('hidden');
+        document.getElementById('tabQuizBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-rose-500 text-white shadow-sm';
+      } else if (tab === 'catcher') {
+        document.getElementById('gameCatcherContainer').classList.remove('hidden');
+        document.getElementById('tabCatcherBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-rose-500 text-white shadow-sm';
+        initCatcherCanvas();
+      } else if (tab === 'oracle') {
+        document.getElementById('gameOracleContainer').classList.remove('hidden');
+        document.getElementById('tabOracleBtn').className = 'flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all bg-rose-500 text-white shadow-sm';
+      }
+      playChime(587.33, 0.1);
+    }
+
+    const quizData = [
+      {
+        question: "Jab Riya kahti hai 'Main bohot busy hoon', tab wo asal mein kya kar rahi hoti hai?",
+        options: [
+          "Desh chala rahi hai",
+          "Reels scroll kar rahi hai ya bed pe aaram se leti hai",
+          "Space research mein busy hai",
+          "Exam ki tayyari kar rahi hai"
+        ],
+        correct: 1,
+        explanation: "100% Sahi! Reels aur chill karna first, Aman ka reply second! 😂"
+      },
+      {
+        question: "Riya ka sabse bada super-weapon kya hai jab wo late ho ya call na uthaye?",
+        options: [
+          "Ek bada bhashan dena",
+          "Puppy face banakar 'Sorry yaar 🥺' bol dena",
+          "Aman ko pizza order karke dena",
+          "Phone switch off kar dena"
+        ],
+        correct: 1,
+        explanation: "The famous 'Sorry na 🥺' jisse saara gussa ek second mein pighal jaata hai! 💖"
+      },
+      {
+        question: "Aman Riya se kya chahta hai sabse zyada?",
+        options: [
+          "Thoda sa waqt, thodi si priority aur dher saari hasi",
+          "Uski saari chocolates",
+          "Uski homework notebook",
+          "Uski car ki chabhi"
+        ],
+        correct: 0,
+        explanation: "Bilkul sahi! Sirf thoda sa saccha waqt aur priority! 🤍"
+      },
+      {
+        question: "Agar Riya aur Aman baat karein, toh best topic kya hota hai?",
+        options: [
+          "Physics ke numericals",
+          "Random 3 AM gossips, life goals aur ek dusre ko roast karna",
+          "Weather report",
+          "Share market analytics"
+        ],
+        correct: 1,
+        explanation: "3 AM wali deep baatein aur roasts hamara favorite timepass hain! 🌙"
+      },
+      {
+        question: "Aman ke liye Riya ki priority ranking kya hai?",
+        options: [
+          "#999",
+          "Top 100",
+          "Hamesha aur forever #1 Priority 💖",
+          "Only on weekends"
+        ],
+        correct: 2,
+        explanation: "Hamesha #1 Priority! Chahe Riya kitni bhi busy ho! 🔒💖"
+      }
+    ];
+
+    let currentQuizIndex = 0;
+    let quizScore = 0;
+
+    function renderQuizQuestion() {
+      const q = quizData[currentQuizIndex];
+      document.getElementById('quizProgress').textContent = `Sawaal ${currentQuizIndex + 1} / ${quizData.length}`;
+      document.getElementById('quizQuestionTitle').textContent = `${currentQuizIndex + 1}. ${q.question}`;
+      
+      const list = document.getElementById('quizOptionsList');
+      list.innerHTML = '';
+      
+      const feedback = document.getElementById('quizFeedback');
+      feedback.className = 'hidden';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'w-full text-left p-4 rounded-2xl bg-white/80 dark:bg-darkCard/80 border border-rose-100 dark:border-purple-900/40 hover:border-rose-400 dark:hover:border-rose-400 transition-all font-medium text-sm text-gray-800 dark:text-gray-200 flex items-center gap-3';
+        btn.innerHTML = `<span class="w-6 h-6 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-600 dark:text-rose-300 flex items-center justify-center text-xs font-bold">${['A','B','C','D'][idx]}</span><span>${opt}</span>`;
+        btn.onclick = () => selectQuizOption(idx, btn);
+        list.appendChild(btn);
+      });
+    }
+
+    function selectQuizOption(idx, btn) {
+      const q = quizData[currentQuizIndex];
+      const feedback = document.getElementById('quizFeedback');
+      const allButtons = document.querySelectorAll('#quizOptionsList button');
+      
+      allButtons.forEach(b => b.disabled = true);
+
+      if (idx === q.correct) {
+        quizScore++;
+        btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+        feedback.className = 'p-4 rounded-2xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 block';
+        feedback.textContent = `✨ ${q.explanation}`;
+        playChime(880, 0.2);
+      } else {
+        btn.classList.add('bg-rose-100', 'border-rose-500', 'text-rose-900');
+        allButtons[q.correct].classList.add('bg-emerald-100', 'border-emerald-500');
+        feedback.className = 'p-4 rounded-2xl text-sm font-medium bg-rose-50 text-rose-800 border border-rose-200 block';
+        feedback.textContent = `💡 ${q.explanation}`;
+        playBeep(260, 0.2);
+      }
+
+      setTimeout(() => {
+        currentQuizIndex++;
+        if (currentQuizIndex < quizData.length) {
+          renderQuizQuestion();
+        } else {
+          showQuizResults();
+        }
+      }, 1600);
+    }
+
+    function showQuizResults() {
+      document.getElementById('quizQuestionBox').classList.add('hidden');
+      document.getElementById('quizResultBox').classList.remove('hidden');
+      document.getElementById('quizScoreDisplay').textContent = `Final Score: ${quizScore} / ${quizData.length}`;
+      
+      const title = document.getElementById('quizResultTitle');
+      const desc = document.getElementById('quizResultDesc');
+      const emoji = document.getElementById('quizResultEmoji');
+
+      if (quizScore >= 4) {
+        emoji.textContent = '👑';
+        title.textContent = 'Certified Soulmate & Bestie Tier!';
+        desc.textContent = "Tum humari baaton, excuses aur dynamic ko rag-rag se jaanti ho! Ab jaldi se time nikalo!";
+        triggerHugeConfetti();
+      } else {
+        emoji.textContent = '🌸';
+        title.textContent = 'Honorary Partner-In-Crime!';
+        desc.textContent = "Bohot pyara score! Clearly tum aur Aman hamesha ek dusre ke favorite rahoge!";
+      }
+    }
+
+    function restartQuiz() {
+      currentQuizIndex = 0;
+      quizScore = 0;
+      document.getElementById('quizQuestionBox').classList.remove('hidden');
+      document.getElementById('quizResultBox').classList.add('hidden');
+      renderQuizQuestion();
+    }
+    renderQuizQuestion();
+
+
+    /* --- GAME 2: CATCH JOY CONTROLLER --- */
+    let cCanvas, cCtx;
+    let cAnimationId;
+    let cBasketX = 150;
+    let cScore = 0;
+    let cLives = 3;
+    let cItems = [];
+    let isCatcherRunning = false;
+
+    function initCatcherCanvas() {
+      cCanvas = document.getElementById('catcherCanvas');
+      cCtx = cCanvas.getContext('2d');
+      cCanvas.width = cCanvas.parentElement.clientWidth;
+      cCanvas.height = cCanvas.parentElement.clientHeight;
+      cBasketX = cCanvas.width / 2;
+
+      const handleMove = (clientX) => {
+        const rect = cCanvas.getBoundingClientRect();
+        cBasketX = clientX - rect.left;
+      };
+
+      cCanvas.addEventListener('mousemove', (e) => handleMove(e.clientX));
+      cCanvas.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) handleMove(e.touches[0].clientX);
+      }, { passive: true });
+    }
+
+    function startCatcherGame() {
+      document.getElementById('catcherOverlay').classList.add('hidden');
+      cScore = 0;
+      cLives = 3;
+      cItems = [];
+      isCatcherRunning = true;
+      document.getElementById('catcherScore').textContent = cScore;
+      document.getElementById('catcherLives').textContent = '❤️❤️❤️';
+      
+      initCatcherCanvas();
+      catcherLoop();
+    }
+
+    function catcherLoop() {
+      if (!isCatcherRunning) return;
+
+      cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+
+      if (Math.random() < 0.04) {
+        const isBad = Math.random() < 0.25;
+        cItems.push({
+          x: Math.random() * (cCanvas.width - 40) + 20,
+          y: -20,
+          speed: Math.random() * 2.5 + 2,
+          symbol: isBad ? '🌩️' : ['💖', '🍕', '☕', '⭐', '🌸'][Math.floor(Math.random() * 5)],
+          isBad: isBad
+        });
+      }
+
+      cCtx.font = '36px serif';
+      cCtx.textAlign = 'center';
+      cCtx.fillText('🧺', cBasketX, cCanvas.height - 20);
+
+      for (let i = cItems.length - 1; i >= 0; i--) {
+        const item = cItems[i];
+        item.y += item.speed;
+        cCtx.font = '24px serif';
+        cCtx.fillText(item.symbol, item.x, item.y);
+
+        if (item.y > cCanvas.height - 50 && item.y < cCanvas.height - 10) {
+          if (Math.abs(item.x - cBasketX) < 40) {
+            if (item.isBad) {
+              cLives--;
+              playBeep(200, 0.2);
+              document.getElementById('catcherLives').textContent = '❤️'.repeat(Math.max(0, cLives));
+            } else {
+              cScore += 10;
+              playChime(659.25 + (cScore * 5), 0.1);
+              document.getElementById('catcherScore').textContent = cScore;
+            }
+            cItems.splice(i, 1);
+            continue;
+          }
+        }
+
+        if (item.y > cCanvas.height + 30) {
+          cItems.splice(i, 1);
+        }
+      }
+
+      if (cLives <= 0) {
+        isCatcherRunning = false;
+        document.getElementById('catcherOverlay').classList.remove('hidden');
+        document.getElementById('catcherOverlayTitle').textContent = 'Khel Khatam! 🌸';
+        document.getElementById('catcherOverlayText').textContent = `Tumne Riya ke liye ${cScore} Joy Points ikatthe kiye! Tum kamaal ho!`;
+        if (cScore > 50) triggerHugeConfetti();
+        return;
+      }
+
+      cAnimationId = requestAnimationFrame(catcherLoop);
+    }
+
+
+    /* --- GAME 3: THE RIYA ORACLE WHEEL --- */
+    let isSpinning = false;
+    let currentRotation = 0;
+    const oracleFortunes = [
+      { title: "Aaj Riya Aman Ko 1 Ghanta Degi! ⏰", msg: "Cosmic order! Aaj Riya sabse pehle Aman ko call karegi aur full time degi!" },
+      { title: "Aaj 3 Coffee & Treat Banti Hai ☕", msg: "Aman ka order hai ki aaj thoda aaram karo, kuch tasty khao aur khud pe proud feel karo!" },
+      { title: "Aaj Aman Har Baat Maanega 👑", msg: "Tumne 24 ghante ka vardan jeet liya hai. Aaj jo Riya bolegi wahi final rule hoga!" },
+      { title: "Achanak Hassi Aane Wali Hai 😂", msg: "Aaj koi aisi meme ya purani yaad aayegi jo tumhara pet dukhne tak hasaegi!" },
+      { title: "Sapno Ki Manzil Kareeb Hai 🎯", msg: "Apne goals pe lage raho, tumhari mehnat zaroor rang layegi. Head high queen!" },
+      { title: "Zero 'Sorry' Allowed Today 💖", msg: "Aaj koi galti nahi, bas pure pyaar, chill vibes aur priority!" }
+    ];
+
+    function spinOracleWheel() {
+      if (isSpinning) return;
+      isSpinning = true;
+      playChime(440, 0.2);
+
+      const wheel = document.getElementById('oracleWheel');
+      const randomExtra = Math.floor(Math.random() * 6) * 60 + 1440;
+      currentRotation += randomExtra;
+      wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+      const spinBtn = document.getElementById('spinBtn');
+      spinBtn.disabled = true;
+
+      setTimeout(() => {
+        isSpinning = false;
+        spinBtn.disabled = false;
+        
+        const normalizedDeg = (currentRotation % 360);
+        const index = Math.floor((360 - normalizedDeg + 30) % 360 / 60);
+        const fortune = oracleFortunes[index % oracleFortunes.length];
+
+        const resultBox = document.getElementById('oracleResultBox');
+        document.getElementById('oracleTitle').textContent = fortune.title;
+        document.getElementById('oracleMessage').textContent = fortune.msg;
+        resultBox.classList.remove('hidden');
+        
+        playChime(880, 0.3);
+        triggerHugeConfetti();
+      }, 4100);
+    }
+
+
+    /* ==================== 11. ENVELOPE OPENING & CONFETTI ==================== */
+    let isEnvelopeOpen = false;
+
+    function toggleEnvelope() {
+      const envelope = document.getElementById('secretEnvelope');
+      const btnText = document.getElementById('envelopeBtnText');
+      const overlay = document.getElementById('parchmentOverlay');
+      const modal = document.getElementById('parchmentCard');
+
+      isEnvelopeOpen = !isEnvelopeOpen;
+
+      if (isEnvelopeOpen) {
+        if (envelope) envelope.classList.add('open');
+        if (btnText) btnText.textContent = 'Khat Khul Gaya ✨';
+        
+        playChime(659.25, 0.3);
+        setTimeout(() => playChime(880, 0.4), 180);
+        triggerHugeConfetti();
+        
+        // Show Parchment Modal with smooth transition
+        if (overlay && modal) {
+          overlay.classList.remove('hidden');
+          setTimeout(() => {
+            modal.classList.add('active');
+          }, 50);
+        }
+
+        // Auto-play the iconic Hook line of Khwab (38s)
+        if (ytPlayer && typeof ytPlayer.seekTo === 'function') {
+          try {
+            ytPlayer.seekTo(38, true);
+            ytPlayer.playVideo();
+          } catch(e) {}
+        }
+      } else {
+        if (modal) modal.classList.remove('active');
+        if (overlay) {
+          setTimeout(() => {
+            overlay.classList.add('hidden');
+          }, 300);
+        }
+        if (envelope) envelope.classList.remove('open');
+        if (btnText) btnText.textContent = 'Khat Kholo & Pura Padho 💌';
+        playChime(440, 0.2);
+      }
+    }
+
+    function triggerHugeConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 80,
+          spread: 80,
+          origin: { y: 0.6 },
+          colors: ['#f43f5e', '#ec4899', '#a855f7', '#fbbf24']
+        });
+      }
+    }
+
+    let letterTriggered = false;
+    window.addEventListener('scroll', () => {
+      const letterSection = document.getElementById('letter');
+      if (letterSection && !letterTriggered) {
+        const rect = letterSection.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.75) {
+          letterTriggered = true;
+          triggerHugeConfetti();
+        }
+      }
+    });
+
+    document.body.classList.add('overflow-hidden');
+  </script>
+</body>
+</html>
